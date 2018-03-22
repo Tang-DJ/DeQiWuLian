@@ -1,0 +1,258 @@
+﻿
+@{
+                /**/
+
+                ViewBag.Title = "燃油锅炉效率";
+                Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="~/Content/WeChat.css" />
+    <link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
+    <script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
+}
+<div class="weui-search-bar" id="searchBar">
+    <form class="weui-search-bar__form" action="#">
+        @* 这里的action是直接到控制器的 *@
+    <div class="weui-search-bar__box">
+        <i class="weui-icon-search"></i>
+        <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+    </div>
+    <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+        <i class="weui-icon-search"></i>
+        <span>搜索</span>
+    </label>
+</form>
+<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+</div>
+<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:darkgoldenrod;">
+    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="EffTimeSpan()">
+        <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">1周</p>
+    </div>
+    <div style="height:40px;float:left;width:60%;">
+        <p style="text-align:center;font-size:16px;">燃油锅炉效率</p>
+    </div>
+    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="SelLocation()">
+        <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">重庆市</p>
+    </div>
+
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()"> 
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">A厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50台次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">88%</p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">B厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50台次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">88%</p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">C厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50台次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">88%</p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">D厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50台次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">88%</p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">E厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50台次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">88%</p>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $("a").click(function () {
+    //        var ref = $(this).attr("href");
+    //        alert(ref);
+    //    });
+
+    //});
+    function DeviceListView() {
+        window.location.href = "/MainPage/DeviceListView";
+    }
+
+    function SelLocation() {
+        $.actions({
+            title: "选择区域",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "重庆市",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#EffiLocat").text("重庆市");
+                    }
+                },
+                {
+                    text: "江北区",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#EffiLocat").text("江北区");
+                    }
+                },
+                {
+                    text: "渝中区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("渝中区");
+                    }
+                },
+                {
+                    text: "沙坪坝区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("沙坪坝区");
+                    }
+                },
+                {
+                    text: "渝北",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("渝北");
+                    }
+                },
+                {
+                    text: "九龙坡区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("九龙坡区");
+                    }
+                },
+                {
+                    text: "北碚区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("北碚区");
+                    }
+                }
+
+            ]
+        });
+    }
+
+    function EffTimeSpan() {
+
+        //一周，一月，一季，一年，二年，全部
+
+        $.actions({
+            title: "选择时间跨度",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "1周",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#WarningTSpan").text("一周");
+                    }
+                },
+                {
+                    text: "一月",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#WarningTSpan").text("一月");
+                    }
+                },
+                {
+                    text: "一季",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("一季");
+                    }
+                },
+                {
+                    text: "一年",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("一年");
+                    }
+                },
+                {
+                    text: "二年",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("二年");
+                    }
+                },
+                {
+                    text: "全部",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("全部");
+                    }
+                }
+
+            ]
+        });
+    }
+</script>
+
+<div style="clear:both;height:50px;width:100%;"></div>
+<div style="position:fixed;width:100%;bottom:0px;height:50px;background-color:white;">
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSettingView()">设置</span></div>
+</div>
+<script type="text/javascript">
+
+    function GoMainStateView() {
+        window.location.href = "/MainPage/MainStateView";
+    }
+
+    function GoEfficiencyView() {
+        window.location.href = "/MainPage/EfficiencyView";
+    }
+
+    function GoSafeStateView() {
+        window.location.href = "/MainPage/SafeStateView";
+    }
+
+    function GoMapView() {
+        window.location.href = "/MainPage/MapView";
+    }
+
+    function GoSettingView() {
+        window.location.href = "/MainPage/SettingView";
+    }
+</script>

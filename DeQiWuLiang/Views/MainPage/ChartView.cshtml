@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "数据图表";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="~/Content/WeChat.css?a=@DateTime.Now.ToShortTimeString()" />
+    <script src="~/Scripts/Chart.min.js"></script>
+    <style>
+        canvas {
+        }
+    </style>
+
+}
+<div class="detailTitle">
+    <div style="float:left;width:15%;height:50px;text-align: center;line-height:50px;" onclick="GoBackFunc()">
+        <img style="vertical-align: middle;display: inline-block;" src="~/Content/Images/goback.jpg" />
+    </div>
+    <div style="float:left;width:80%;height:50px;line-height:50px;">
+        <p style="text-align:center;line-height:50px;margin:0;font-size:20px;">测试数据图表</p>
+    </div>
+</div>
+<div style="height:50px;"></div>
+<p style="font-size:12px;text-align:left;">单位<span id="Unit">@ViewBag.Unit</span></p>
+<canvas id="canvas" height="450" width="350"></canvas>
+<script>
+    var xlabel = new Array();
+    xlabel=@Html.Raw(Json.Encode(ViewBag.xAxis));
+
+    var lineChartData = {
+        //labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: xlabel,
+        datasets: [
+            //{
+            //	fillColor : "rgba(0,255,0,0.5)",
+            //	strokeColor : "rgba(220,220,220,1)",
+            //	pointColor : "rgba(220,220,220,1)",
+            //	pointStrokeColor : "#fff",
+            //	data : [3.3,5.5]
+            //},
+            {
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                data: [0, 0.5, 0.4, 0.9, 1.7, 1.5]
+        }
+        ]
+
+    }
+    //lineChartData.labels = temparr;
+    //alert(lineChartData.datasets[0].data[1]);
+    var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+    //折现图
+    //var myLine1 = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+    function GoBackFunc() {
+        window.location.href="/MainPage/"+"@ViewBag.From"+"?Id="+"@ViewBag.FromId";
+    }
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

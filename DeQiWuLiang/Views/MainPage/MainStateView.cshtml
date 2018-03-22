@@ -1,0 +1,506 @@
+﻿
+@{
+    ViewBag.Title = "总体概况";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+
+@section head{
+    <link rel="stylesheet" href="~/Content/WeChat.css?@DateTime.Now.ToString("yyyy-MM-dd_HH:mm:ss");" />
+    <link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
+    <script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
+}
+
+<div style="position:relative;width:100%;">
+    <div style="margin:0 auto;width:46px;float:left;"><img style="width:46px;height:46px;" src="~/Content/logo.png" /></div>
+    <div style="float:left;width:120px;line-height:46px;text-align:center">X用X户X名X</div>
+    <div class="weui-search-bar" style="float:left;width:35%;">
+        @* 这里的action是直接到控制器的 *@
+        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
+            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
+        </div>
+    </div>
+    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()" >
+        返回
+    </div>
+</div>
+<script type="text/javascript">
+    function ShowSearch() {
+        $("#SearchPad").css("display", "block");
+        $(".weui-search-bar").css("display", "none");
+    }
+
+    function GoBack() {
+        window.location.href = "/MainPage/login";
+    }
+
+    function cancelSearch() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+
+    function Search() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+</script>
+
+<div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
+    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
+        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
+    </div>
+    <div style="height:40px;float:left;width:60%;">
+        <p style="text-align:center;font-size:16px;line-height:40px;">搜索选项列表</p>
+    </div>
+    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
+        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="Search()">确定</p>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">吨位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <input class="weui-input" type="number" placeholder="最小值">
+            </div>
+            <div class="weui-cell__hd">
+                <input class="weui-input" type="number" placeholder="最大值">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">时间区间选择</div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="timestart" type="text" value="2017-01-01 12:00">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">区域</div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">制造单位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="默认为全部">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">使用单位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="默认为全部">
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="menu">
+    <img alt="德器物联" src="~/Content/Images/toplogo.png" />
+</div>*@
+
+<div style="height:60px;"></div>
+<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:gainsboro;">
+    <div style="margin-left:10%;height:40px;float:left;width:70%;">
+        <p style="text-align:center;font-size:16px;">工业锅炉能效在线监测平台</p>
+    </div>
+    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="ShowSearch()">
+        <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">重庆市</p>
+    </div>
+    <a href="TRQEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
+        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
+            <div style="float:left;height:50px;width:35%">
+                <p style="text-align:center;line-height:50px;">天然气</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">88%</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">50台次</p>
+            </div>
+        </div>
+    </a>
+    <a href="RYEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
+        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
+            <div style="float:left;height:50px;width:35%">
+                <p style="text-align:center;line-height:50px;">燃油</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">88%</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">40台次</p>
+            </div>
+        </div>
+    </a>
+    <a href="RMEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
+        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
+            <div style="float:left;height:50px;width:35%">
+                <p style="text-align:center;line-height:50px;">燃煤</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">88%</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">30台次</p>
+            </div>
+        </div>
+    </a>
+    <a href="RSWZEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
+        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
+            <div style="float:left;height:50px;width:35%">
+                <p style="text-align:center;line-height:50px;">燃生物质</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">88%</p>
+            </div>
+            <div style="float:left;height:50px;width:30%">
+                <p style="text-align:center;line-height:50px;">20台次</p>
+            </div>
+        </div>
+    </a>
+</div>
+<div style="height:50px;clear:both;"></div>
+<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:wheat;">
+    <div style="margin-left:10%;height:50px;float:left;width:70%;">
+        <p style="text-align:center;font-size:16px;">工业锅炉运行安全预警平台</p>
+    </div>
+    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="ShowSearch()">
+        <p style="text-align:center;font-size:16px;line-height:40px;" id="WarningTSpan">1周</p>
+    </div>
+    <div style="clear:both;height:180px;width:100%;background-color:transparent;" onclick="WarningView()">
+        <div style="width:50%;height:inherit;float:left;">
+            <p style="line-height:inherit;text-align:center;font-size:18px">压力报警</p>
+            <div style="clear:both;height:50px;width:100%;">
+                <div style="width:30%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">高压</p>
+                </div>
+                <div style="width:70%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">2000次</p>
+                </div>
+            </div>
+            <div style="clear:both;height:50px;width:100%;">
+                <div style="width:30%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">超高压</p>
+                </div>
+                <div style="width:70%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">200次</p>
+                </div>
+            </div>
+            <div style="clear:both;height:50px;width:100%;">
+                <div style="width:30%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">临界值</p>
+                </div>
+                <div style="width:70%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">20次</p>
+                </div>
+            </div>
+        </div>
+        <div style="width:50%;height:inherit;float:left;" onclick="WarningView()">
+            <p style="line-height:inherit;text-align:center;font-size:18px">温度报警</p>
+            <div style="clear:both;height:50px;width:100%;">
+                <div style="width:30%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">高温</p>
+                </div>
+                <div style="width:70%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">2000次</p>
+                </div>
+            </div>
+            <div style="clear:both;height:50px;width:100%;">
+                <div style="width:30%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">超高温</p>
+                </div>
+                <div style="width:70%;height:inherit;float:left;">
+                    <p style="line-height:inherit;text-align:center;font-size:16px">200次</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div style="clear:both;height:50px;width:100%;"></div>
+<div style="position:fixed;width:100%;bottom:0px;height:50px;background-color:white;">
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSettingView()">设置</span></div>
+</div>
+<script type="text/javascript">
+    function GoMainStateView() {
+        window.location.href = "/MainPage/MainStateView";
+    }
+
+    function GoEfficiencyView() {
+        window.location.href = "/MainPage/EfficiencyView";
+    }
+
+    function GoSafeStateView() {
+        window.location.href = "/MainPage/SafeStateView";
+    }
+
+    function GoMapView() {
+        window.location.href = "/MainPage/MapView";
+    }
+
+    function GoSettingView() {
+        window.location.href = "/MainPage/SettingView";
+    }
+
+
+    function LocationView() {
+        window.location.href = "/MainPage/LocationView";
+    }
+    function WarningView() {
+        window.location.href = "/MainPage/WDWarningView";
+    }
+
+    $(document).ready(function () {
+
+        $(".animsition").animsition({
+
+            inClass: 'fade-in',
+            outClass: 'fade-out',
+            inDuration: 100,
+            outDuration: 500,
+            linkElement: '.animsition-link',
+            // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            unSupportCss: ['animation-duration',
+                '-webkit-animation-duration',
+                '-o-animation-duration'
+            ],
+            //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+
+            overlay: false,
+
+            overlayClass: 'animsition-overlay-slide',
+            overlayParentElement: 'body'
+        });
+    });
+
+    $("#timestart").datetimePicker({
+        title: '起始时间',
+        years: [2017, 2018, 2019],
+        //monthes: ['06', '07'],
+        onChange: function (picker, values, displayValues) {
+            console.log(values);
+        }
+    });
+    $("#timeend").datetimePicker({
+        title: '结束时间',
+        years: [2017, 2018, 2019],
+        //monthes: ['06', '07'],
+        onChange: function (picker, values, displayValues) {
+            console.log(values);
+        }
+    });
+
+
+
+    function SearchLocatFunc() {
+        $.actions({
+            title: "选择区域",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "重庆市",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#SearchLocat").val("重庆市");
+                    }
+                },
+                {
+                    text: "江北区",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#SearchLocat").val("江北区");
+                    }
+                },
+                {
+                    text: "渝中区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("渝中区");
+                    }
+                },
+                {
+                    text: "沙坪坝区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("沙坪坝区");
+                    }
+                },
+                {
+                    text: "渝北",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("渝北");
+                    }
+                },
+                {
+                    text: "九龙坡区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("九龙坡区");
+                    }
+                },
+                {
+                    text: "北碚区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("北碚区");
+                    }
+                }
+
+            ]
+        });
+    }
+
+
+
+    function SelLocation() {
+        $.actions({
+            title: "选择区域",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "重庆市",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#EffiLocat").text("重庆市");
+                    }
+                },
+                {
+                    text: "江北区",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#EffiLocat").text("江北区");
+                    }
+                },
+                {
+                    text: "渝中区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("渝中区");
+                    }
+                },
+                {
+                    text: "沙坪坝区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("沙坪坝区");
+                    }
+                },
+                {
+                    text: "渝北",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("渝北");
+                    }
+                },
+                {
+                    text: "九龙坡区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("九龙坡区");
+                    }
+                },
+                {
+                    text: "北碚区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("北碚区");
+                    }
+                }
+
+            ]
+        });
+    }
+
+    function WarningTimeSpan() {
+
+        //一周，一月，一季，一年，二年，全部
+
+        $.actions({
+            title: "选择时间跨度",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "1周",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#WarningTSpan").text("一周");
+                    }
+                },
+                {
+                    text: "一月",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#WarningTSpan").text("一月");
+                    }
+                },
+                {
+                    text: "一季",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("一季");
+                    }
+                },
+                {
+                    text: "一年",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("一年");
+                    }
+                },
+                {
+                    text: "二年",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("二年");
+                    }
+                },
+                {
+                    text: "全部",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#WarningTSpan").text("全部");
+                    }
+                }
+
+            ]
+        });
+    }
+
+
+</script>

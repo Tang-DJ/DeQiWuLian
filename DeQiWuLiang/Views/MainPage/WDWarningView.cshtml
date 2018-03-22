@@ -1,0 +1,502 @@
+﻿
+@{
+    ViewBag.Title = "WDWarningView";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="~/Content/WeChat.css" />
+    <link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
+    <script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
+}
+
+<div style="position:relative;width:100%;">
+    <div style="margin:0 auto;width:46px;float:left;"><img style="width:46px;height:46px;" src="~/Content/logo.png" /></div>
+    <div style="float:left;width:120px;line-height:46px;text-align:center">X用X户X名X</div>
+    <div class="weui-search-bar" style="float:left;width:35%;">
+        @* 这里的action是直接到控制器的 *@
+        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
+            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
+        </div>
+    </div>
+    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
+        返回
+    </div>
+</div>
+<script type="text/javascript">
+    function ShowSearch() {
+        $("#SearchPad").css("display", "block");
+        $(".weui-search-bar").css("display", "none");
+    }
+
+    function GoBack() {
+        window.location.href = "/MainPage/MainStateView";
+    }
+
+    function cancelSearch() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+
+    function Search() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+</script>
+
+<div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
+    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
+        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
+    </div>
+    <div style="height:40px;float:left;width:60%;">
+        <p style="text-align:center;font-size:16px;line-height:40px;">搜索选项列表</p>
+    </div>
+    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
+        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="Search()">确定</p>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">吨位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <input class="weui-input" type="number" placeholder="最小值">
+            </div>
+            <div class="weui-cell__hd">
+                <input class="weui-input" type="number" placeholder="最大值">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">时间区间选择</div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="timestart" type="text" value="2017-01-01 12:00">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">区域</div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">制造单位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="默认为全部">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title" style="clear:both;">使用单位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="默认为全部">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#timestart").datetimePicker({
+        title: '起始时间',
+        years: [2017, 2018, 2019],
+        //monthes: ['06', '07'],
+        onChange: function (picker, values, displayValues) {
+            console.log(values);
+        }
+    });
+    $("#timeend").datetimePicker({
+        title: '结束时间',
+        years: [2017, 2018, 2019],
+        //monthes: ['06', '07'],
+        onChange: function (picker, values, displayValues) {
+            console.log(values);
+        }
+    });
+
+
+
+    function SearchLocatFunc() {
+        $.actions({
+            title: "选择区域",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "重庆市",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#SearchLocat").val("重庆市");
+                    }
+                },
+                {
+                    text: "江北区",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#SearchLocat").val("江北区");
+                    }
+                },
+                {
+                    text: "渝中区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("渝中区");
+                    }
+                },
+                {
+                    text: "沙坪坝区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("沙坪坝区");
+                    }
+                },
+                {
+                    text: "渝北",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("渝北");
+                    }
+                },
+                {
+                    text: "九龙坡区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("九龙坡区");
+                    }
+                },
+                {
+                    text: "北碚区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("北碚区");
+                    }
+                }
+
+            ]
+        });
+    }
+</script>
+<div style="height:60px;"></div>
+
+
+
+
+
+
+<div>
+    <div style="float:left;width:50%;height:40px;text-align:center;background-color:darkorange;" onclick="ShowWDWarning()"><label style="line-height:40px;">温度报警</label></div>
+    <div style="float:left;width:50%;height:40px;text-align:center;background-color:darkgray;" onclick="ShowYLWarning()"><label style="line-height:40px;">压力报警</label></div>
+</div>
+
+<div id="DataContent" style="clear:both;width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:darkorange">
+    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="EffTimeSpan()">
+        <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiTimeSpan">1周</p>
+    </div>
+    <div style="height:40px;float:left;width:60%;">
+        <p style="text-align:center;font-size:16px;" id="WarningTitle">温度报警</p>
+    </div>
+    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="SelLocation()">
+        <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">重庆市</p>
+    </div>
+
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">A厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">  </p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">B厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">  </p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">C厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">  </p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">D厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">  </p>
+        </div>
+    </div>
+    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:35%">
+            <p style="text-align:center;line-height:50px;">E厂</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">50 次</p>
+        </div>
+        <div style="float:left;height:50px;width:30%">
+            <p style="text-align:center;line-height:50px;">  </p>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $("a").click(function () {
+    //        var ref = $(this).attr("href");
+    //        alert(ref);
+    //    });
+
+    //});
+
+
+    function ShowYLWarning() {
+        //darkgray
+        $("#DataContent").css("background-color", "darkgray");
+        $("#WarningTitle").text("压力报警");
+    }
+
+    function ShowWDWarning() {
+        $("#DataContent").css("background-color", "darkorange");
+        $("#WarningTitle").text("温度报警");
+    }
+
+    function DeviceListView() {
+        window.location.href = "/MainPage/DeviceListView";
+    }
+
+
+    $("#timestart").datetimePicker({
+        title: '起始时间',
+        years: [2017, 2018, 2019],
+        //monthes: ['06', '07'],
+        onChange: function (picker, values, displayValues) {
+            console.log(values);
+        }
+    });
+    $("#timeend").datetimePicker({
+        title: '结束时间',
+        years: [2017, 2018, 2019],
+        //monthes: ['06', '07'],
+        onChange: function (picker, values, displayValues) {
+            console.log(values);
+        }
+    });
+
+
+
+    function SearchLocatFunc() {
+        $.actions({
+            title: "选择区域",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "重庆市",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#SearchLocat").val("重庆市");
+                    }
+                },
+                {
+                    text: "江北区",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#SearchLocat").val("江北区");
+                    }
+                },
+                {
+                    text: "渝中区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("渝中区");
+                    }
+                },
+                {
+                    text: "沙坪坝区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("沙坪坝区");
+                    }
+                },
+                {
+                    text: "渝北",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("渝北");
+                    }
+                },
+                {
+                    text: "九龙坡区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("九龙坡区");
+                    }
+                },
+                {
+                    text: "北碚区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#SearchLocat").val("北碚区");
+                    }
+                }
+
+            ]
+        });
+    }
+
+
+    function SelLocation() {
+        $.actions({
+            title: "选择区域",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "重庆市",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#EffiLocat").text("重庆市");
+                    }
+                },
+                {
+                    text: "江北区",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#EffiLocat").text("江北区");
+                    }
+                },
+                {
+                    text: "渝中区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("渝中区");
+                    }
+                },
+                {
+                    text: "沙坪坝区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("沙坪坝区");
+                    }
+                },
+                {
+                    text: "渝北",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("渝北");
+                    }
+                },
+                {
+                    text: "九龙坡区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("九龙坡区");
+                    }
+                },
+                {
+                    text: "北碚区",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiLocat").text("北碚区");
+                    }
+                }
+
+            ]
+        });
+    }
+
+    function EffTimeSpan() {
+
+        //一周，一月，一季，一年，二年，全部
+
+        $.actions({
+            title: "选择时间跨度",
+            onClose: function () {
+                console.log("close");
+            },
+            actions: [
+                {
+                    text: "1周",
+                    className: "color-primary",
+                    onClick: function () {
+                        //选择后的事情
+                        $("#EffiTimeSpan").text("一周");
+                    }
+                },
+                {
+                    text: "一月",
+                    className: "color-primary",
+                    onClick: function () {
+                        $("#EffiTimeSpan").text("一月");
+                    }
+                },
+                {
+                    text: "一季",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiTimeSpan").text("一季");
+                    }
+                },
+                {
+                    text: "一年",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiTimeSpan").text("一年");
+                    }
+                },
+                {
+                    text: "二年",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiTimeSpan").text("二年");
+                    }
+                },
+                {
+                    text: "全部",
+                    className: 'color-primary',
+                    onClick: function () {
+                        $("#EffiTimeSpan").text("全部");
+                    }
+                }
+
+            ]
+        });
+    }
+</script>

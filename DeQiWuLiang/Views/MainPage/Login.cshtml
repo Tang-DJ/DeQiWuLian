@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+
+    string aa = ViewBag.ErrorMsg.ToString();
+    bool LoginError = false;
+    if (aa.Contains("错误"))
+    {
+        LoginError = true;
+    }
+    string CookiesUserName = "";
+    string CookiesPassWord = "";
+    if (Request.Cookies["UserName"] != null && Request.Cookies["PassWord"] != null && LoginError == false)
+    {
+        CookiesUserName = System.Web.HttpContext.Current.Server.UrlDecode(Request.Cookies["UserName"].Value);
+        CookiesPassWord = System.Web.HttpContext.Current.Server.UrlDecode(Request.Cookies["PassWord"].Value);
+    }
+
+
+}
+@section head{
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #666;
+            background: #fff;
+        }
+
+        .form_login {
+            max-width: 640px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .form-group {
+            width: 355px;
+            margin: 0 auto;
+            height: 50px;
+            margin-bottom: 5px;
+        }
+
+            .form-group .fa {
+                display: block;
+                width: 50px;
+                height: 50px;
+                float: left;
+            }
+
+            .form-group .form-control {
+                display: block;
+                width: 300px;
+                height: 48px;
+                float: left;
+                border: 1px solid #ccc;
+                padding: 0;
+                margin-left: 0;
+                text-indent: 2em;
+                font-size: large;
+            }
+
+                .form-group .form-control:hover {
+                    border: 1px solid #0160A0;
+                }
+
+            .form-group .checkfont {
+                color: #666;
+            }
+
+            .form-group .btn {
+                width: 350px;
+                height: 50px;
+                background-color: #0160A0;
+                border: 0px;
+                color: #fff;
+                font-size: 14px;
+            }
+
+        .fa-user {
+            background: url(/Content/Images/pw.png) no-repeat center;
+        }
+
+        .fa-key {
+            background: url(/Content/Images/pw.png) no-repeat center;
+        }
+
+        .form_footer {
+            margin-top: 60px;
+            font-size: 12px;
+            color: #5B809A;
+        }
+    </style>
+
+}
+<div>
+    <div style="float:left;"><img src="~/Content/tejianlogo.jpg" style="height:60px;" /></div>
+    <div style="float:left;"><p style="line-height:60px;font-size:20px;">重庆市特种设备检测研究院</p></div>
+</div>
+<div class="form_login">
+    <div style="margin:0 auto;width:50%;"><img style="width:100%;" src="~/Content/logo.png" /></div>
+    @if (LoginError)
+    {
+        <p style="font-size:large;color:red;text-align:center;">@ViewBag.ErrorMsg</p>
+    }
+
+    @using (Html.BeginForm("LoginCheck", "MainPage", FormMethod.Post))
+    {
+        <div class="form-group">
+            <i class="fa fa-user"></i>
+            <input type="text" class="form-control" name="username" id="username" placeholder="用户名" value="@CookiesUserName" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <i class="fa fa-key"></i>
+            <input type="password" class="form-control" name="password" id="password" placeholder="密码" value="@CookiesPassWord" autocomplete="off">
+            
+        </div>
+
+
+        <div class="form-group" style="height:50px; line-height:25px; text-align:left;">
+            <input type="checkbox" class="" name="checkbox" id="checkbox" placeholder="checkbox" autocomplete="off">
+            <span class="checkfont">记住我的帐号</span>
+        </div>
+        <div>
+            <p style="display:block;float:left; height:30px;width:100px;margin-left:10px;background-color:#0160A0;color:white;margin-bottom:30px;">
+                忘记密码
+            </p>
+            <input type="password" style="height:26px;" name="password" id="passverify" placeholder="短信验证码"  autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-login">登录</button>
+        </div>
+    }
+
+    <div class="form_footer">@@2018 重庆特检</div>
+</div>
+
+

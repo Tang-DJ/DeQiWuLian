@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    @*<link rel="stylesheet" href="~/Content/bootstrap.css" />*@
+    <link rel="stylesheet" href="~/Content/jquery-weui-build/dist/lib/weui.min.css">
+    <link rel="stylesheet" href="~/Content/jquery-weui-build/dist/css/jquery-weui.min.css">
+    <script src="~/Content/jquery-1.11.0.min.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    <script src="~/Content/jquery-weui-build/dist/js/jquery-weui.min.js"></script>
+
+
+    @RenderSection("head", required: false)
+    <title>@ViewBag.Title</title>
+</head>
+<body id="body">
+    @RenderBody()
+    
+    <script src="~/Content/jquery-weui-build/dist/js/swiper.min.js"></script>
+    <script src="~/Content/jquery-weui-build/dist/js/city-picker.min.js"></script>
+</body>
+</html>
