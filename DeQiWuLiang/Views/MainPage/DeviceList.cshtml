@@ -3,21 +3,16 @@
     ViewBag.Title = "设备列表";
     Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
 }
-@section head{ 
+@section head{
     <link rel="stylesheet" href="~/Content/WeChat.css?@DateTime.Now.ToString();" />
-    }
+}
 
 <div style="position:relative;width:100%;">
-    <div style="margin:0 auto;width:46px;float:left;"><img style="width:46px;height:46px;" src="~/Content/logo.png" /></div>
-    <div style="float:left;width:120px;line-height:46px;text-align:center">X用X户X名X</div>
-    <div class="weui-search-bar" style="float:left;width:35%;">
-        @* 这里的action是直接到控制器的 *@
-        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
-            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
-        </div>
-    </div>
-    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
-        返回
+    <div style="font-size:18pt;color:#19479d;position: relative;top: 20pt;margin-left: 12pt;"><img src="../../Content/Images/back.png" style="width:20pt" onclick="GoBack()" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+    <div style="color:#19479d;font-size:14pt;position: absolute;top: 10px;right: 12pt;"><span style="position: relative;bottom: 20pt">用户名&emsp;</span><img src="../../Content/Images/smalllogo.png" style="width:50pt;height:50pt;" /></div>
+    <div style="position: relative;top: 40pt;padding:0 12px;" onclick="ShowSearch()">
+        <input type="text" style="color:#19479d;width: 95%;height: 50pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;font-size: 22pt;outline: none;" placeholder="&emsp;请输入关键字" />
+        <div style="height: 51pt;position: absolute;right: 3%;background: #19479d;width: 85pt;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;"><img src="../../Content/Images/search2.png" style="    position: absolute;top: 13pt;left: 25pt;" /></div>
     </div>
 </div>
 <script type="text/javascript">
@@ -194,19 +189,19 @@
 
 @for (int i = 0; i < 6; i++)
 {
-<div class="deviceContent" style="height:auto;">
-    <div class="leftimg">
-        <img style="height:120px;" src="~/Content/Images/boiler.png" />
+    <div class="deviceContent" style="height:auto;">
+        <div class="leftimg">
+            <img style="height:120px;" src="~/Content/Images/boiler.png" />
+        </div>
+        <div class="rightinfo" style="height:auto;" onclick="GoToDetailView()">
+            <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">型号:<span>XXX</span>  </p>
+            <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">编号:<span>XXX</span>  </p>
+            <p style="font-size:1em;margin-top:5px;margin-bottom:0;">状态:<span style="margin-left:5px;color:#ffffff;background: #008000">在线</span></p>
+            <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">地址:<span>XXX</span>  </p>
+            <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">效率:<span>XXX</span>  </p>
+            <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">故障:<span>XXX</span>  </p>
+        </div>
     </div>
-    <div class="rightinfo" style="height:auto;" onclick="GoToDetailView()">
-        <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">型号:<span>XXX</span>  </p>
-        <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">编号:<span>XXX</span>  </p>
-        <p style="font-size:1em;margin-top:5px;margin-bottom:0;">状态:<span style="margin-left:5px;color:#ffffff;background: #008000">在线</span></p>
-        <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">地址:<span>XXX</span>  </p>
-        <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">效率:<span>XXX</span>  </p>
-        <p style="font-size:1em;margin-top:5px;margin-bottom:0;white-space:nowrap;overflow:hidden;">故障:<span>XXX</span>  </p>
-    </div>
-</div>
 }
 
 <script type="text/javascript">

@@ -8,19 +8,14 @@
     <link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
     <script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
 }
-<div style="position:relative;width:100%;">
-    <div style="margin:0 auto;width:46px;float:left;"><img style="width:46px;height:46px;" src="~/Content/logo.png" /></div>
-    <div style="float:left;width:120px;line-height:46px;text-align:center">X用X户X名X</div>
-    <div class="weui-search-bar" style="float:left;width:35%;">
-        @* 这里的action是直接到控制器的 *@
-        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
-            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
+    <div style="position:relative;width:100%;">
+        <div style="font-size:18pt;color:#19479d;position: relative;top: 20pt;margin-left: 12pt;"><img src="../../Content/Images/back.png" style="width:20pt" onclick="GoBack()" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+        <div style="color:#19479d;font-size:14pt;position: absolute;top: 10px;right: 12pt;"><span style="position: relative;bottom: 20pt">用户名&emsp;</span><img src="../../Content/Images/smalllogo.png" style="width:50pt;height:50pt;" /></div>
+        <div style="position: relative;top: 40pt;padding:0 12px;" onclick="ShowSearch()">
+            <input type="text" style="color:#19479d;width: 95%;height: 50pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;font-size: 22pt;outline: none;" placeholder="&emsp;请输入关键字" />
+            <div style="height: 51pt;position: absolute;right: 3%;background: #19479d;width: 85pt;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;"><img src="../../Content/Images/search2.png" style="    position: absolute;top: 13pt;left: 25pt;" /></div>
         </div>
     </div>
-    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
-        返回
-    </div>
-</div>
 <script type="text/javascript">
     function ShowSearch() {
         $("#SearchPad").css("display", "block");
@@ -42,7 +37,7 @@
     }
 </script>
 
-<div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
+<div id="SearchPad" style="top:0;display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
     <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
     </div>
@@ -192,66 +187,67 @@
 </script>
 
 
-<div style="height:20px;clear:both;"></div>
-<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:wheat;">
-    <div style="margin-left:10%;height:50px;float:left;width:70%;">
-        <p style="text-align:center;font-size:16px;">工业锅炉运行安全预警平台</p>
+<div style="height:80px;clear:both;"></div>
+
+<div style="height:auto;margin:0 12pt;box-sizing: border-box;">
+    <div style="height:45pt;float:left;width:100%;background-color:#C53840;border-bottom:1px solid white;font-size:14pt;">
+        <p style="text-align:center;color:white;line-height:55px;">工业锅炉运行安全预警平台</p>
     </div>
     @*<div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="ShowSearch()">
         <p style="text-align:center;font-size:16px;line-height:40px;" id="WarningTSpan">1周</p>
     </div>*@
     <div style="clear:both;height:180px;width:100%;background-color:transparent;" onclick="WarningView()">
-        <div style="width:50%;height:inherit;float:left;">
-            <p style="line-height:inherit;text-align:center;font-size:18px">压力报警</p>
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:30%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">高压</p>
+        <div style="width:50%;height:45pt;float:left;font-size:14pt;">
+            <p style="line-height:45pt;text-align:center;background-color:#C53840;border:1px solid white;color:white;">压力报警</p>
+            <div style="clear:both;height:45pt;width:100%;">
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">高压</p>
                 </div>
-                <div style="width:70%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">2000次</p>
-                </div>
-            </div>
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:30%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">超高压</p>
-                </div>
-                <div style="width:70%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">200次</p>
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">2000次</p>
                 </div>
             </div>
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:30%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">临界值</p>
+            <div style="clear:both;height:45pt;width:100%;">
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">超高压</p>
                 </div>
-                <div style="width:70%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">20次</p>
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">200次</p>
+                </div>
+            </div>
+            <div style="clear:both;height:45pt;width:100%;">
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">临界值</p>
+                </div>
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">20次</p>
                 </div>
             </div>
         </div>
-        <div style="width:50%;height:inherit;float:left;" onclick="WarningView()">
-            <p style="line-height:inherit;text-align:center;font-size:18px">温度报警</p>
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:30%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">高温</p>
+        <div style="width:50%;height:45pt;float:left;" onclick="WarningView()">
+            <p style="line-height:45pt;text-align:center;font-size:18px;background-color:#C53840;border:1px solid white;color:white;">温度报警</p>
+            <div style="clear:both;height:45pt;width:100%;font-size:14pt;">
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">高温</p>
                 </div>
-                <div style="width:70%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">2000次</p>
-                </div>
-            </div>
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:30%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">超高温</p>
-                </div>
-                <div style="width:70%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">200次</p>
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">2000次</p>
                 </div>
             </div>
-            @*<div style="clear:both;height:50px;width:100%;">
-                <div style="width:30%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">高</p>
+            <div style="clear:both;height:45pt;width:100%;">
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:45pt;text-align:center;">超高温</p>
                 </div>
-                <div style="width:70%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">2000次</p>
+                <div style="width:50%;height:inherit;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;margin-bottom:-1px;">
+                    <p style="line-height:inherit;text-align:center;">200次</p>
+                </div>
+            </div>
+            @*<div style="clear:both;height:45pt;width:100%;">
+                <div style="width:50%;height:inherit;float:left;">
+                    <p style="line-height:45pt;text-align:center;">高</p>
+                </div>
+                <div style="width:50%;height:inherit;float:left;">
+                    <p style="line-height:45pt;text-align:center;">2000次</p>
                 </div>
             </div>*@
         </div>
@@ -264,39 +260,39 @@
 </script>
 
 
-<div style="height:20px;clear:both;"></div>
-<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:wheat;">
-    <div style="margin-left:10%;height:40px;width:70%;">
-        <p style="text-align:center;font-size:16px;">工业锅炉运行安全预警平台</p>
+<div style="height:90px;clear:both;"></div>
+<div style="height:auto;font-size:14pt;margin:0 12pt;">
+    <div style="height:45pt;width:100%;background-color:#E2644E;border:1px solid white;box-sizing: border-box;">
+        <p style="text-align:center;line-height: 45pt;color:white;">工业锅炉运行安全预警平台</p>
     </div>
-    <div style="height:30px;width:100%;">
-        <div style="float:left;width:20%;height:30px;text-align:center;line-height:30px;">
+    <div style="height:45pt;width:100%;background-color:#E2644E;color:white;">
+        <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid white;">
             型号
         </div>
-        <div style="float:left;width:20%;height:30px;text-align:center;line-height:30px;">
+        <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid white;">
             编号
         </div>
-        <div style="float:left;width:30%;height:30px;text-align:center;line-height:30px;">
+        <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid white;">
             压力预警
         </div>
-        <div style="float:left;width:30%;height:30px;text-align:center;line-height:30px;">
+        <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid white;">
             温度预警
         </div>
     </div>
     @for (int i = 8; i > 0; i--)
     {
         <a href="DetailSingleView?chart=Err">
-            <div style="height:50px;width:100%;">
-                <div style="float:left;width:20%;height:30px;text-align:center;line-height:30px;">
+            <div style="height:45pt;width:100%;">
+                <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #E2644E;">
                     @i
                 </div>
-                <div style="float:left;width:20%;height:30px;text-align:center;line-height:30px;">
+                <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #E2644E;">
                     @(i * 10)
                 </div>
-                <div style="float:left;width:30%;height:30px;text-align:center;line-height:30px;">
+                <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #E2644E;">
                     @(i * 13)
                 </div>
-                <div style="float:left;width:30%;height:30px;text-align:center;line-height:30px;">
+                <div style="float:left;width:25%;height:45pt;text-align:center;line-height:45pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #E2644E;">
                     @(i * 15)
                 </div>
             </div>
@@ -306,12 +302,12 @@
 
 
 <div style="clear:both;height:50px;width:100%;"></div>
-<div style="position:fixed;width:100%;bottom:0px;height:50px;background-color:white;">
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMainStateView()">首页</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoEfficiencyView()">能效</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSafeStateView()">安全</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMapView()">地图</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSettingView()">设置</span></div>
+<div style="position:fixed;width:100%;bottom:0px;height:50pt;background-color:white;font-size:20pt;">
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;background-color:#19479d"><span style="line-height:50pt;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoSettingView()">设置</span></div>
 </div>
 <script type="text/javascript">
 

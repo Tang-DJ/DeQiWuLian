@@ -10,19 +10,15 @@
     <script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
 }
 
-<div style="position:relative;width:100%;">
-    <div style="margin:0 auto;width:46px;float:left;"><img style="width:46px;height:46px;" src="~/Content/logo.png" /></div>
-    <div style="float:left;width:120px;line-height:46px;text-align:center">X用X户X名X</div>
-    <div class="weui-search-bar" style="float:left;width:35%;">
-        @* 这里的action是直接到控制器的 *@
-        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
-            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
+    <div style="position:relative;width:100%;">
+        <div style="font-size:18pt;color:#19479d;position: relative;top: 20pt;margin-left: 12pt;"><img src="../../Content/Images/back.png" style="width:20pt" onclick="GoBack()" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+        <div style="color:#19479d;font-size:14pt;position: absolute;top: 10px;right: 12pt;"><span style="position: relative;bottom: 20pt">用户名&emsp;</span><img src="../../Content/Images/smalllogo.png" style="width:50pt;height:50pt;" /></div>
+        <div style="position: relative;top: 40pt;padding:0 12px;" onclick="ShowSearch()">
+           <input type="text" style="color:#19479d;width: 95%;height: 50pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;font-size: 22pt;outline: none;" placeholder="&emsp;请输入关键字" />
+            <div style="height: 51pt;position: absolute;right: 3%;background: #19479d;width: 85pt;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;"><img src="../../Content/Images/search2.png" style="    position: absolute;top: 13pt;left: 25pt;"/></div>
         </div>
     </div>
-    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
-        返回
-    </div>
-</div>
+
 <script type="text/javascript">
     function ShowSearch() {
         $("#SearchPad").css("display", "block");
@@ -44,7 +40,7 @@
     }
 </script>
 
-<div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
+<div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;top:0;">
     <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
     </div>
@@ -192,64 +188,76 @@
         });
     }
 </script>
-<div style="height:60px;"></div>
+<div style="height:90px;"></div>
 
-
-<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:gainsboro;">
-    <div style="margin-left:10%;height:40px;float:left;width:70%;">
-        <p style="text-align:center;font-size:16px;">工业锅炉能效在线监测平台</p>
+<div style="height:auto;margin:0 12pt;font-size:14pt;">
+    <div style="height:45pt;float:left;width:100%;background-color:#19479d">
+        <p style="text-align:center;color:white;line-height:55px;">工业锅炉能效在线监测平台</p>
     </div>
     @*<div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="ShowSearch()">
         <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">重庆市</p>
     </div>*@
     <a href="TRQEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;color:white;background-color:#19479d;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">燃料种类</p>
+            </div>
+            <div style="float:left;height:45pt;width:33%;border: 1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">平均效率</p>
+            </div>
+            <div style="float:left;height:45pt;width:33%;border: 1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">监测台次</p>
+            </div>
+        </div>
+    </a>
+    <a href="TRQEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">天然气</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">88%</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">50台次</p>
             </div>
         </div>
     </a>
     <a href="RYEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">燃油</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">88%</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">40台次</p>
             </div>
         </div>
     </a>
     <a href="RMEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height: 45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">燃煤</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">88%</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">30台次</p>
             </div>
         </div>
     </a>
     <a href="RSWZEfficiencyView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height: 45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">燃生物质</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">88%</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">20台次</p>
             </div>
         </div>
@@ -257,111 +265,137 @@
 </div>
 
 <div style="height:40px;width:100%;clear:both;"></div>
-<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:gainsboro;">
-    <div style="margin-left:10%;height:40px;float:left;width:70%;">
-        <p style="text-align:center;font-size:16px;">工业锅炉能效在线监测平台</p>
+<div style="margin:0 12pt;height:auto;font-size:14pt;">
+    <div style="height:45pt;float:left;width:100%;background-color:rgb(71,133,180);color:white;">
+        <p style="text-align:center;line-height:45pt;border: 1px solid white;">工业锅炉能效在线监测平台</p>
     </div>
 
     <a href="DetailSingleView?chart=Efficiency" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;background-color:rgb(71,133,180);color:white;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">锅炉型号</p>
+            </div>
+            <div style="float:left;height:45pt;width:33%;border: 1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">锅炉编号</p>
+            </div>
+            <div style="float:left;height:45pt;width:33%;border: 1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">平均能效</p>
+            </div>
+        </div>
+    </a>
+    <a href="DetailSingleView?chart=Efficiency" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号1</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号1</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效88%</p>
             </div>
         </div>
     </a>
     <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号2</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号2</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效87%</p>
             </div>
         </div>
     </a>
     <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号3</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号3</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效87%</p>
             </div>
         </div>
     </a>
     <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号4</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号4</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效86%</p>
             </div>
         </div>
     </a>
     <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号5</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号5</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效85%</p>
             </div>
         </div>
     </a>
     <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号6</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号6</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效85%</p>
             </div>
         </div>
     </a>
     <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号7</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号7</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效84%</p>
             </div>
         </div>
     </a>
     <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
-        <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;">
-            <div style="float:left;height:50px;width:35%">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">型号8</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">编号8</p>
             </div>
-            <div style="float:left;height:50px;width:30%">
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">能效83%</p>
+            </div>
+        </div>
+    </a>
+    <a href="DetailSingleView" class="animsition-link" data-animsition-out="fade-out-left-lg" data-animsition-out-duration="800">
+        <div style="clear:both;height:45pt;">
+            <div style="float:left;height:45pt;width:34%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">型号9</p>
+            </div>
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                <p style="text-align:center;line-height:50px;">编号9</p>
+            </div>
+            <div style="float:left;height:45pt;width:33%;border: 1px solid rgb(71,133,180);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                 <p style="text-align:center;line-height:50px;">能效83%</p>
             </div>
         </div>
@@ -379,12 +413,12 @@
 
 
 <div style="clear:both;height:50px;width:100%;"></div>
-<div style="position:fixed;width:100%;bottom:0px;height:50px;background-color:white;">
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMainStateView()">首页</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoEfficiencyView()">能效</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSafeStateView()">安全</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMapView()">地图</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSettingView()">设置</span></div>
+<div style="position:fixed;width:100%;bottom:0px;height:50pt;background-color:white;font-size:20pt;">
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;background-color:#19479d"><span style="line-height:50pt;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50pt;" onclick="GoSettingView()">设置</span></div>
 </div>
 <script type="text/javascript">
 
