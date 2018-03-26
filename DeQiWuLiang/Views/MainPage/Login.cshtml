@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 @{
     ViewBag.Title = "登录";
     Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
@@ -23,129 +23,74 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            color: #666;
-            background: #fff;
-        }
-
-        .form_login {
-            max-width: 640px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .form-group {
-            width: 355px;
-            margin: 0 auto;
-            height: 50px;
-            margin-bottom: 5px;
-        }
-
-            .form-group .fa {
-                display: block;
-                width: 50px;
-                height: 50px;
-                float: left;
-            }
-
-            .form-group .form-control {
-                display: block;
-                width: 300px;
-                height: 48px;
-                float: left;
-                border: 1px solid #ccc;
-                padding: 0;
-                margin-left: 0;
-                text-indent: 2em;
-                font-size: large;
-            }
-
-                .form-group .form-control:hover {
-                    border: 1px solid #0160A0;
-                }
-
-            .form-group .checkfont {
-                color: #666;
-            }
-
-            .form-group .btn {
-                width: 350px;
-                height: 50px;
-                background-color: #0160A0;
-                border: 0px;
-                color: #fff;
-                font-size: 14px;
-            }
-
-        .fa-user {
-            background: url(/Content/Images/pw.png) no-repeat center;
-        }
-
-        .fa-key {
-            background: url(/Content/Images/pw.png) no-repeat center;
-        }
-
-        .form_footer {
-            margin-top: 60px;
-            font-size: 12px;
-            color: #5B809A;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
         }
     </style>
-
+    <script type="text/javascript">
+        var result = false;
+        function checkbox() {
+            if (result == true) {
+                document.getElementById("img").src = "../Content/Images/remembernotchecked.png";
+                result = false;
+            }
+            else if (result == false) {
+                document.getElementById("img").src = "../Content/Images/rememberchecked.png";
+                result = true;
+            }
+        }</script>
 }
-<div>
-    <div style="float:left;"><img src="~/Content/tejianlogo.jpg" style="height:60px;" /></div>
-    <div style="float:left;"><p style="line-height:60px;font-size:20px;">重庆市特种设备检测研究院</p></div>
+<div style="padding-left:8%;padding-right:8%"><img style="width:100%;" src="~/Content/Images/biglogo.png" /></div>
+<div style="width:100%;">
+    <form action="LoginCheck" method="post" style="width:100%; bottom:5%;position:absolute;">
+        <div style="margin:auto; width:100%; padding-top:4%">
+            <div style="text-align:center; width:80%; height:20pt; margin:auto">
+                <div style="margin:0 8px">
+                    <span style="color:#0D122F; font-size:4vw; text-align:left;width:20%;height:8%; float:left">用户名</span>
+                    <input type="text" name="username" id="username" value="@CookiesUserName" autocomplete="off" style="float:left; width:55%;font-size:4vw;border:0px;outline:none;padding:2pt" />
+                    <input type="button" value="注册账号" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" />
+                </div>
+                <hr id="hr1" style="margin:auto; width:98%;height:3px;border:none;border-top:3px ridge #2B5297" />
+                @if (LoginError)
+                {
+                    <p style="font-size:3vw;color:red;text-align:left">@ViewBag.ErrorMsg</p>
+                    <script type="text/javascript">
+                        document.getElementById("hr1").style = "margin:auto; width:98%;height:3px;border:none;border-top:3px ridge red";
+                    </script>
+                }
+            </div>
+        </div>
+        <div style="margin:auto; width:100%; padding-top:10%">
+            <div style="text-align:center; width:80%; margin:auto">
+                <div style="margin:0 8px">
+                    <span style="color:#0D122F; font-size:4vw; text-align:left;width:20%; float:left">密码</span>
+                    <input type="password" name="password" id="password" value="@CookiesPassWord" autocomplete="off" style="float:left; width:30%; font-size:4vw;border:0px;outline:none;padding:2pt" />
+                    <input type="button" value="忘记密码" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" />
+                </div>
+                <hr id="hr2" style="margin:auto; width:98%;height:3px;border:none;border-top:3px ridge #2B5297;" />
+                @if (LoginError)
+                {
+                    <p style="font-size:3vw;color:red;text-align:left">@ViewBag.ErrorMsg</p>
+                    <script type="text/javascript">
+                        document.getElementById("hr2").style = "margin:auto; width:98%;height:3px;border:none;border-top:3px ridge red";
+                    </script>
+                }
+            </div>
+        </div>
+
+
+        <div style="text-align:left;padding-left:11%; padding-top:2%">
+            <input style="width:16pt; height:16pt; display:none" type="checkbox" class="checkbox" name="checkbox" id="checkbox" placeholder="checkbox" autocomplete="off">
+            <label onclick="checkbox()" for="checkbox" style="display:inline-block; width:3vw; height:3vw;"><img id="img" src="~/Content/Images/remembernotchecked.png" style="width:100%; height:100%" /></label>
+            <span style="margin:auto; font-size:4vw;color:#2B5297;font-weight:500">记住我的帐号</span>
+        </div>
+        <div style="margin:auto; width:30vw; height:14vw; padding-top:2%">
+            <button type="submit" style="color:#ffffff; width:30vw; height:14vw; font-size:6vw;background-color:#2B5297;border-radius:5pt">登录</button>
+        </div>
+        <div style="margin:auto; width:100%; text-align:center; font-size:4vw; padding-top:2%">@@ 重庆市特种设备检测研究院</div>
+    </form>
 </div>
-<div class="form_login">
-    <div style="margin:0 auto;width:50%;"><img style="width:100%;" src="~/Content/logo.png" /></div>
-    @if (LoginError)
-    {
-        <p style="font-size:large;color:red;text-align:center;">@ViewBag.ErrorMsg</p>
-    }
-
-    @using (Html.BeginForm("LoginCheck", "MainPage", FormMethod.Post))
-    {
-        <div class="form-group">
-            <i class="fa fa-user"></i>
-            <input type="text" class="form-control" name="username" id="username" placeholder="用户名" value="@CookiesUserName" autocomplete="off">
-        </div>
-
-        <div class="form-group">
-            <i class="fa fa-key"></i>
-            <input type="password" class="form-control" name="password" id="password" placeholder="密码" value="@CookiesPassWord" autocomplete="off">
-
-        </div>
-
-
-        <div class="form-group" style="height:50px; line-height:25px; text-align:left;">
-            <input type="checkbox" class="" name="checkbox" id="checkbox" placeholder="checkbox" autocomplete="off">
-            <span class="checkfont">记住我的帐号</span>
-        </div>
-        <div>
-            <a onclick="GoForgetPasswordView()" style="display:block;float:left; height:30px;width:100px;margin-left:10px;background-color:#0160A0;color:white;margin-bottom:30px;">
-                忘记密码
-            </a>
-            <input type="password" style="height:26px;" name="password" id="passverify" placeholder="短信验证码" autocomplete="off">
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-login">登录</button>
-        </div>
-    }
-
-    <div class="form_footer">@@2018 重庆特检</div>
-</div>
-
-<script type="text/javascript">
-
-    function GoForgetPasswordView() {
-        window.location.href = "/MainPage/ForgetPasswordView";
-    }
-</script>
-
-
 
