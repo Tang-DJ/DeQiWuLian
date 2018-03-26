@@ -116,7 +116,11 @@ namespace DeQiWuLiang.Controllers
         {
             return View("SettingView");
         }
-
+        
+        public　ActionResult ForgetPasswordView()
+        {
+            return View("ForgetPasswordView");
+        }
 
         public ActionResult ChartView()
         {
