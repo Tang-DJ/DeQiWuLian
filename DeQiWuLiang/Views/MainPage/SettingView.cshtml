@@ -11,23 +11,24 @@
     body {
         margin: 0;
         padding: 0;
-        color: #666;
         background: #fff;
-        font-size: 22pt;
-
-        font-family:"微软雅黑";
+        font-family: "微软雅黑";
     }
 </style>
 }
 
-<div style="position:relative;width:100%;">
-    <div style="font-size:18pt;color:#19479d;position: relative;top: 20pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
-    <div style="color:#19479d;font-size:14pt;position: absolute;top: 10px;right: 12pt;"><span style="position: relative;bottom: 20pt">用户名&emsp;</span><img src="../../Content/Images/smalllogo.png" style="width:50pt;height:50pt;" /></div>
-    <div style="position: relative;top: 40pt;padding:0 12px;" onclick="ShowSearch()">
-        <input type="text" style="color:#19479d;width: 95%;height: 50pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;font-size: 22pt;outline: none;" placeholder="&emsp;请输入关键字" />
-        <div style="height: 51pt;position: absolute;right: 3%;background: #19479d;width: 85pt;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;"><img src="../../Content/Images/search2.png" style="    position: absolute;top: 13pt;left: 25pt;" /></div>
+<div style="position:relative;margin-bottom:52pt;">
+    <div style="height:50pt;">
+        <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+        <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
+        <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
+    </div>
+    <div style="padding:0 12pt;" onclick="ShowSearch()">
+        <div style="width:87%;"><input type="text" style="float: left;color:#19479d;width: 94%;height: 40pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;font-size: 16pt;outline: none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" placeholder="&emsp;请输入关键字" /></div>
+        <div style="float:left;height: 40pt;background: #19479d;width: 18%;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align: center;padding: 8pt"><img src="../../Content/Images/search2.png" /></div>
     </div>
 </div>
+
 <script type="text/javascript">
     function ShowSearch() {
         $("#SearchPad").css("display", "block");
@@ -197,79 +198,79 @@
         });
     }
 </script>
+<div style="padding-bottom:12pt;">
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 用户名</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" readonly value="当前用户名" placeholder="请输入文本">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 密码</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="password" placeholder="请输入密码">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 新密码</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="password" placeholder="请输入密码">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 单位名称</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入文本">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 单位地址</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入文本">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 联系电话</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入文本">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 邮箱</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入文本">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 版权信息</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" readonly value="CQTJ-ES1.0" placeholder="请输入文本">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 权限申请</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入文本">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="width:30%;margin-left:10%;"> <label for="" class="weui-label"> 设备信息</label> </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入文本">
+        </div>
+    </div>
+    
 
-<div style="height:15px;clear:both; margin-top:12%"> </div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 用户名</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" readonly value="当前用户名" placeholder="请输入文本" style="font-size:22pt; font-family:微软雅黑">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 密码</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="password" placeholder="请输入密码">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 新密码</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="password" placeholder="请输入密码">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 单位名称</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" placeholder="请输入文本">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 单位地址</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" placeholder="请输入文本">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 联系电话</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" placeholder="请输入文本">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 邮箱</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" placeholder="请输入文本">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 版权信息</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" readonly value="CQTJ-ES1.0" placeholder="请输入文本">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 权限申请</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" placeholder="请输入文本">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-    <div class="weui-cell__hd"> <label for="" class="weui-label" style="width:160pt; margin-left:45pt;"> 设备信息</label> </div>
-    <div class="weui-cell__bd">
-        <input class="weui-input" type="text" placeholder="请输入文本">
-    </div>
-</div>
-<div class="weui-cell" style="padding-top:22px;padding-bottom:22px;">
-   
+
 </div>
 
 <div style="clear:both;height:50px;width:100%;"></div>
-<div style="position:fixed;width:100%;bottom:0px;height:50pt;background-color:white;font-size:20pt; border:medium solid #2B5792;">
-    <div style="float:left;width:20%;text-align:center;"> <span style="line-height:50pt;" onclick="GoMainStateView()"> 首页</span> </div>
-    <div style="float:left;width:20%;text-align:center;"> <span style="line-height:50pt;" onclick="GoEfficiencyView()"> 能效</span> </div>
-    <div style="float:left;width:20%;text-align:center;"> <span style="line-height:50pt;" onclick="GoSafeStateView()"> 安全</span> </div>
-    <div style="float:left;width:20%;text-align:center;"> <span style="line-height:50pt;" onclick="GoMapView()"> 地图</span> </div>
-    <div style="float:left;width:20%;text-align:center;background-color:#2B5792"> <span style="line-height:50pt; color:aliceblue;" onclick="GoSettingView()"> 设置</span> </div>
+<div style="position:fixed;width:100%;bottom:0px;height:40pt;background-color:white;font-size:18pt;border:solid 1pt #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;background-color:#19479d;"><span style="line-height:40pt;color:white;" onclick="GoSettingView()">设置</span></div>
 </div>
 <script type="text/javascript">
 
