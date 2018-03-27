@@ -27,7 +27,7 @@
     <style type="text/css">
         html, body {
             width: 100%;
-            height: 100%;
+            
         }
     </style>
     <script type="text/javascript">
@@ -41,9 +41,14 @@
                 document.getElementById("img").src = "../Content/Images/rememberchecked.png";
                 result = true;
             }
-        }</script>
+        }
+        function GoForgetPassword() {
+            window.location.href = "/MainPage/ForgetPasswordView";
+        }
+
+    </script>
 }
-<div style="padding-left:8%;padding-right:8%"><img style="width:100%;" src="~/Content/Images/biglogo.png" /></div>
+<div style="padding-left:8%;padding-right:8%;margin-bottom:330px;"><img style="width:100%;" src="~/Content/Images/biglogo.png" /></div>
 <div style="width:100%;">
     <form action="LoginCheck" method="post" style="width:100%; bottom:5%;position:absolute;">
         <div style="margin:auto; width:100%; padding-top:4%">
@@ -68,7 +73,7 @@
                 <div style="margin:0 8px">
                     <span style="color:#0D122F; font-size:4vw; text-align:left;width:20%; float:left">密码</span>
                     <input type="password" name="password" id="password" value="@CookiesPassWord" autocomplete="off" style="float:left; width:30%; font-size:4vw;border:0px;outline:none;padding:2pt" />
-                    <input type="button" value="忘记密码" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" />
+                    <input type="button" value="忘记密码" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" onclick="GoForgetPassword()" />
                 </div>
                 <hr id="hr2" style="margin:auto; width:98%;height:3px;border:none;border-top:3px ridge #2B5297;" />
                 @if (LoginError)
