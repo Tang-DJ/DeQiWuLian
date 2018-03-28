@@ -1,19 +1,21 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "燃煤锅炉效率";
     Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
 }
 @section head{
-    <link rel="stylesheet" href="~/Content/WeChat.css" />
-    <link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
-    <script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
+<link rel="stylesheet" href="~/Content/WeChat.css" />
+<link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
+<script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
 }
+
+@*
 <div class="weui-search-bar">
-    @* 这里的action是直接到控制器的 *@
+
     <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
         <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
     </div>
 </div>
+
 <script type="text/javascript">
     function ShowSearch() {
         $("#SearchPad").css("display", "block");
@@ -30,6 +32,131 @@
         $(".weui-search-bar").css("display", "block");
     }
 </script>
+*@
+
+<div style="position:relative;width:100%;height:92px">
+
+    <div id="fallbackLogin" style="margin-left:12pt;width:100pt;float:left;margin-top:20px" onclick="GoBack()">
+        <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
+        <span style="font-size:18pt;color:#6781AF;">返回</span>
+    </div>
+
+    @*搜索框相关*@
+    <div id="fallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="GoBackMain()">
+        <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
+        <span style="font-size:18pt;color:#6781AF;">返回</span>
+    </div>
+
+    @*天然气相关*@
+    <div id="naturalfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="naturalGoBackMain()">
+        <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
+        <span style="font-size:18pt;color:#6781AF;">返回</span>
+    </div>
+
+    @*燃油相关*@
+    <div id="fuelfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="fuelGoBackMain()">
+        <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
+        <span style="font-size:18pt;color:#6781AF;">返回</span>
+    </div>
+
+    @*燃煤相关*@
+    <div id="coalfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="coalGoBackMain()">
+        <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
+        <span style="font-size:18pt;color:#6781AF;">返回</span>
+    </div>
+
+    @*燃生物质相关*@
+    <div id="biomassBurningfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="biomassBurningGoBackMain()">
+        <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
+        <span style="font-size:18pt;color:#6781AF;">返回</span>
+    </div>
+
+    @*预警*@
+    <div id="previewWarningfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="previewWarningfallbackMain()">
+        <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
+        <span style="font-size:18pt;color:#6781AF;">返回</span>
+    </div>
+
+    @*
+    <div style="float:left;width:120px;line-height:46px;text-align:center">X</div>
+    <div class="weui-search-bar" style="float:left;width:35%;">
+
+        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
+            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
+        </div>
+    </div>
+    *@
+
+    <div style="margin-right:12pt;float:right">
+        <img src="~/Content/Images/smalllogo.png" />
+    </div>
+
+    <div style="margin-right:2%;margin-top:30px;float:right">
+        <span style="font-size:14pt;color:#5D78A9;">用户名</span>
+    </div>
+
+
+
+    @*
+    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
+        返回
+    </div>
+    *@
+</div>
+
+<div style="width:100%;">
+    <div id="weui-search-bar" style="border:2px solid #294B8C;height:36pt;margin-top:10pt;margin-left:auto;margin-right:auto;width:90%;border-radius:25px;" onclick="ShowSearch()">
+        <label style="color:#294B8C;margin-left:20px;margin-top:5px;font-size:30px">请输入关键词</label>
+        <div style="width:20%;border:1px solid #294B8C;height:100%;border-radius:0px 25px 25px 0px;float:right;background-color:#294B8C">
+            <img src="~/Content/Images/search2.png" style="margin-left:30px;margin-top:7px" />
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function ShowSearch() {
+        $("#SearchPad").css("display", "block");
+        //$(".weui-search-bar").css("display", "none");
+        $("#weui-search-bar").css("visibility", "hidden");
+
+        $("#fallbackLogin").css("display", "none");
+        $("#naturalfallbackMain").css("display", "none");
+        $("#fuelfallbackMain").css("display", "none");
+        $("#coalfallbackMain").css("display", "none");
+        $("#biomassBurningfallbackMain").css("display", "none");
+        $("#previewWarningfallbackMain").css("display", "none");
+        $("#fallbackMain").css("display", "block");
+    }
+
+    function GoBack() {
+        window.location.href = "/MainPage/login";
+    }
+
+    function GoBackMain() {
+        $("#SearchPad").css("display", "none");
+        $("#weui-search-bar").css("visibility", "visible");
+        $("#fallbackLogin").css("display", "block");
+        $("#fallbackMain").css("display", "none");
+        $("#naturalGas").css("display", "none");
+        $("#fuel").css("display", "none");
+        $("#coal").css("display", "none");
+        $("#biomassBurning").css("display", "none");
+        $("#previewWarningHead").css("display", "none");
+        $("#DataContent").css("display", "none");
+        $("#monitor").css("display", "block");
+        $("#previewWarning").css("display", "block");
+    }
+
+    function cancelSearch() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+
+    function Search() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+</script>
+
 <div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
     <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
@@ -105,70 +232,74 @@
 
 
 
+<div style="height:24pt;"></div>
 
-<div style="width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:azure;">
+<div style="height:auto;margin:12pt;">
+    @*
     <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="EffTimeSpan()">
         <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">1周</p>
     </div>
-    <div style="height:40px;float:left;width:60%;">
-        <p style="text-align:center;font-size:16px;">燃生物质锅炉效率</p>
+    *@
+    <div style="height:40pt;float:left;width:100%;background:#00395F;">
+        <p style="text-align:center;font-size:16px;line-height:55px;color:white">燃生物质锅炉效率</p>
     </div>
+    @*
     <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="SelLocation()">
         <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">重庆市</p>
     </div>
-
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
+    *@
+    <div style="clear:both;height:40px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:34%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">A厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">50台次</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">88%</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
+    <div style="clear:both;height:40px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:34%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">B厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">50台次</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">88%</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
+    <div style="clear:both;height:40px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:34%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">C厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">50台次</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">88%</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
+    <div style="clear:both;height:40px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:34%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">D厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">50台次</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">88%</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
+    <div style="clear:both;height:40px;" onclick="DeviceListView()">
+        <div style="float:left;height:50px;width:34%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">E厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">50台次</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
+        <div style="float:left;height:50px;width:33%;border:1px solid #00395F;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <p style="text-align:center;line-height:50px;">88%</p>
         </div>
     </div>
