@@ -15,6 +15,7 @@
 </style>
 }
 
+@*
 <div style="position:relative;width:100%;height:92px">
 
     <div id="fallbackLogin" style="margin-left:12pt;width:100pt;float:left;margin-top:20px" onclick="GoBack()">
@@ -22,43 +23,43 @@
         <span style="font-size:18pt;color:#6781AF;">返回</span>
     </div>
 
-    @*搜索框相关*@
+
     <div id="fallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="GoBackMain()">
         <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
         <span style="font-size:18pt;color:#6781AF;">返回</span>
     </div>
 
-    @*天然气相关*@
+
     <div id="naturalfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="naturalGoBackMain()">
         <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
         <span style="font-size:18pt;color:#6781AF;">返回</span>
     </div>
 
-    @*燃油相关*@
+
     <div id="fuelfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="fuelGoBackMain()">
         <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
         <span style="font-size:18pt;color:#6781AF;">返回</span>
     </div>
 
-    @*燃煤相关*@
+
     <div id="coalfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="coalGoBackMain()">
         <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
         <span style="font-size:18pt;color:#6781AF;">返回</span>
     </div>
 
-    @*燃生物质相关*@
+
     <div id="biomassBurningfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="biomassBurningGoBackMain()">
         <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
         <span style="font-size:18pt;color:#6781AF;">返回</span>
     </div>
 
-    @*预警*@
+
     <div id="previewWarningfallbackMain" style="margin-left:12pt;width:100pt;float:left;margin-top:20px;display:none" onclick="previewWarningfallbackMain()">
         <img style="width:20pt;height:auto;" src="~/Content/Images/back.png" />
         <span style="font-size:18pt;color:#6781AF;">返回</span>
     </div>
 
-    @*
+
     <div style="float:left;width:120px;line-height:46px;text-align:center">X</div>
     <div class="weui-search-bar" style="float:left;width:35%;">
 
@@ -66,7 +67,7 @@
             <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
         </div>
     </div>
-    *@
+
 
     <div style="margin-right:12pt;float:right">
         <img src="~/Content/Images/smalllogo.png" />
@@ -78,11 +79,11 @@
 
 
 
-    @*
+
     <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
         返回
     </div>
-    *@
+
 </div>
 
 <div style="width:100%;">
@@ -137,37 +138,54 @@
         $(".weui-search-bar").css("display", "block");
     }
 </script>
+*@
+<div style="position:relative;margin-bottom:52pt;">
+    <div style="height:50pt;">
+        <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+        <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
+        <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
+    </div>
+    <div style="padding:0 12pt;" onclick="ShowSearch()">
+        <div style="width:87%;"><input type="text" style="float: left;color:#19479d;width: 94%;height: 40pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;font-size: 16pt;outline: none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" placeholder="&emsp;请输入关键字" /></div>
+        <div style="float:left;height: 40pt;background: #19479d;width: 18%;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align: center;padding: 8pt"><img src="../../Content/Images/search2.png" /></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function ShowSearch() {
+        $("#SearchPad").css("display", "block");
+        $(".weui-search-bar").css("display", "none");
+    }
+
+    function GoBack() {
+        window.location.href = "/MainPage/Login";
+    }
+
+    function cancelSearch() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+
+    function Search() {
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+</script>
 
 <div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
-    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
+
+    @*<div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
     </div>
+
     <div style="height:40px;float:left;width:60%;">
         <p style="text-align:center;font-size:16px;line-height:40px;">搜索选项列表</p>
     </div>
     <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="Search()">确定</p>
-    </div>
-    <div class="weui-cells__title" style="clear:both;">吨位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
-            </div>
-        </div>
-    </div>
-    <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
-                <input class="weui-input" type="number" placeholder="最小值">
-            </div>
-            <div class="weui-cell__hd">
-                <input class="weui-input" type="number" placeholder="最大值">
-            </div>
-        </div>
-    </div>
-    <div class="weui-cells__title" style="clear:both;">时间区间选择</div>
+    </div>*@
+
+    @*<div class="weui-cells__title" style="clear:both;">时间区间选择</div>
     <div class="weui-cell">
         <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
         <div class="weui-cell__bd">
@@ -179,7 +197,45 @@
         <div class="weui-cell__bd">
             <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
         </div>
+    </div>*@
+    <div style="clear:both;margin-left:12pt;margin-right:12pt;">
+        <div style="width:20%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">时间</div>
+        <div style="width:35%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timestart" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black"></div>
+        <div style="width:15pt;height:24pt;font-size:14pt;float:left;line-height:24pt;color:blue;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">至</div>
+        <div style="width:35%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timeend" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black"></div>
     </div>
+
+
+
+    @*<div class="weui-cells__title" style="clear:both;">吨位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
+            </div>
+        </div>
+    </div>*@
+
+    <div style="clear:both;height:5%;"></div>
+
+    <div style="clear:both;margin-left:12pt;margin-right:12pt;">
+        <div style="width:20%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">吨位</div>
+        <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+        <div style="width:70%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><hr style="" /></div>
+    </div>
+
+    <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <input class="weui-input" type="number" placeholder="最小值">
+            </div>
+            <div class="weui-cell__hd">
+                <input class="weui-input" type="number" placeholder="最大值">
+            </div>
+        </div>
+    </div>
+
     <div class="weui-cells__title" style="clear:both;">区域</div>
     <div class="weui-cell">
         <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
@@ -209,7 +265,9 @@
     <img alt="德器物联" src="~/Content/Images/toplogo.png" />
 </div>*@
 
+@*
 <div style="height:24pt;"></div>
+*@
 
 @*
 <div style="width:90%;height:auto;border-top-style:solid;border-top-width:1px;margin-left:auto;margin-right:auto">
@@ -965,12 +1023,12 @@
 </script>
 
 <div style="clear:both;height:50px;width:100%;"></div>
-<div style="position:fixed;width:100%;bottom:0px;height:50px;background-color:white;height:49pt;font-size:18pt;border:2px solid #2B5296">
-    <div style="float:left;width:20%;text-align:center;background:#2B5296;"><span style="line-height:49pt;color:white" onclick="GoMainStateView()">首页</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:49pt;" onclick="GoEfficiencyView()">能效</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:49pt;" onclick="GoSafeStateView()">安全</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:49pt;" onclick="GoMapView()">地图</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:49pt;" onclick="GoSettingView()">设置</span></div>
+<div style="position:fixed;width:100%;bottom:0px;height:40pt;background-color:white;font-size:18pt;border:solid 1pt #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+    <div style="float:left;width:20%;text-align:center;background-color:#19479d"><span style="line-height:40pt;color:white" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoSettingView()">设置</span></div>
 </div>
 <script type="text/javascript">
     function GoMainStateView() {
