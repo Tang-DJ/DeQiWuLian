@@ -77,9 +77,6 @@
         <span style="font-size:14pt;color:#5D78A9;">用户名</span>
     </div>
 
-
-
-
     <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
         返回
     </div>
@@ -265,9 +262,6 @@
     <img alt="德器物联" src="~/Content/Images/toplogo.png" />
 </div>*@
 
-@*
-<div style="height:24pt;"></div>
-*@
 
 @*
 <div style="width:90%;height:auto;border-top-style:solid;border-top-width:1px;margin-left:auto;margin-right:auto">
@@ -445,64 +439,65 @@
 </div>
 *@
 
-<div style="height:24pt;clear:both;"></div>
-
-
-<div style="height:auto;margin:12pt;font-size:14pt;">
+<div style="height:160pt;margin:0 12pt 12pt 12pt;font-size:14pt;">
     <div style="height:40pt;float:left;width:100%;background:#C53840">
-        <p style="text-align:center;color:white;line-height:55px;">工业锅炉运行安全预警平台</p>
+        <p style="text-align:center;color:white;line-height:40pt;border:1px solid white;">工业锅炉运行安全预警平台</p>
     </div>
     @*
-    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="ShowSearch()">
-        <p style="text-align:center;font-size:16px;line-height:40px;" id="WarningTSpan">1周</p>
+    <div style="height:40pt;float:left;width:20%;background-color:cadetblue;" onclick="ShowSearch()">
+        <p style="text-align:center;font-size:14pt;line-height:40px;" id="WarningTSpan">1周</p>
     </div>
     *@
-    <div style="clear:both;height:180px;width:100%;background-color:transparent;" onclick="WarningView()">
-        <div style="width:50%;height:inherit;float:left;">
-            <p style="line-height:inherit;text-align:center;font-size:18px;background:#C53840;height:40pt;line-height:50px;color:white">压力预警</p>
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:50%;height:40pt;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;color:#C53840;border:1px solid #C53840;">预警级别</p>
+    <div style="clear:both;width:100%;background-color:transparent;" onclick="WarningView()">
+        <div style="width:50%;height:40pt;float:left;">
+            <div style="width:100%;height:40pt;float:left;">
+                <p style="line-height:40pt;text-align:center;font-size:14pt;background:#C53840;color:white;border:1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">压力预警</p>
+            </div>
+            <div style="clear:both;height:40pt;width:100%;">
+                <div style="width:50%;height:40pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #C53840;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;color:#C53840;">预警级别</p>
                 </div>
-                <div style="width:50%;height:inherit;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;color:#C53840;border:1px solid #C53840;">预警次数</p>
+                <div style="width:50%;height:40pt;float:left;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;color:#C53840;">预警次数</p>
                 </div>
             </div>
-            <div style="clear:both;height:50px;width:100%;margin-top:7px">
-                <div style="width:50%;height:inherit;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;border:1px solid #C53840;">高压预警</p>
+            <div style="clear:both;height:40pt;width:100%;">
+                <div style="width:50%;height:40pt;float:left;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;">高压预警</p>
                 </div>
-                <div style="width:50%;height:inherit;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;border:1px solid #C53840;">2000次</p>
+                <div style="width:50%;height:40pt;float:left;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;">2000次</p>
                 </div>
             </div>
             @*
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:30%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">临界值</p>
+            <div style="clear:both;height:40pt;width:100%;">
+                <div style="width:30%;height:40pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt">临界值</p>
                 </div>
-                <div style="width:70%;height:inherit;float:left;">
-                    <p style="line-height:inherit;text-align:center;font-size:16px">20次</p>
+                <div style="width:70%;height:40pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;">20次</p>
                 </div>
             </div>
             *@
         </div>
-        <div style="width:49.8%;height:inherit;float:right;" onclick="WarningView()">
-            <p style="line-height:inherit;text-align:center;font-size:18px;background:#C53840;height:40pt;line-height:50px;color:white">温度报警</p>
-            <div style="clear:both;height:50px;width:100%;">
-                <div style="width:50%;height:inherit;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;color:#C53840;border:1px solid #C53840;">预警级别</p>
+        <div style="width:50%;height:inherit;float:right;" onclick="WarningView()">
+            <div style="width:100%;height:40pt;float:left;">
+                <p style="line-height:40pt;text-align:center;font-size:14pt;background:#C53840;color:white;border:1px solid white;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">温度报警</p>
+            </div>
+            <div style="clear:both;height:40pt;width:100%;">
+                <div style="width:50%;height:inherit;float:left;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;color:#C53840;">预警级别</p>
                 </div>
-                <div style="width:50%;height:inherit;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;color:#C53840;border:1px solid #C53840;">预警次数</p>
+                <div style="width:50%;height:inherit;float:left;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;color:#C53840;">预警次数</p>
                 </div>
             </div>
-            <div style="clear:both;height:50px;width:100%;margin-top:7px">
-                <div style="width:50%;height:inherit;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;border:1px solid #C53840;">高温预警</p>
+            <div style="clear:both;height:40pt;width:100%;">
+                <div style="width:50%;height:inherit;float:left;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;">高温预警</p>
                 </div>
-                <div style="width:50%;height:inherit;float:left;">
-                    <p style="line-height:55px;text-align:center;font-size:16px;border:1px solid #C53840;">2000次</p>
+                <div style="width:50%;height:inherit;float:left;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                    <p style="line-height:40pt;text-align:center;font-size:14pt;">2000次</p>
                 </div>
             </div>
 
@@ -510,34 +505,6 @@
     </div>
 </div>
 
-
-@*
-<div id="previewWarning" style="width:100%;">
-    <table style="margin-left:auto;margin-right:auto;width:90%;font-size:14pt;">
-        <tr>
-            <td colspan="4" style="height:44pt;background:#C53840;color:#F1F4F9;text-align:center">
-                工业锅炉运行安全预警平台
-            </td>
-        </tr>
-        <tr style="height:44pt;background:#C53840;color:#F1F4F9;text-align:center">
-            <td colspan="2" style="width:50%;" onclick="showPressure()">压力预警</td>
-            <td colspan="2" style="width:50%;" onclick="showTemperature()">温度预警</td>
-        </tr>
-        <tr style="height:44pt;background:#FFFFFF;color:#555555;text-align:center">
-            <td style="width:25%;border:1px solid #C53840" onclick="showPressure()">预警级别</td>
-            <td style="width:25%;border:1px solid #C53840" onclick="showPressure()">预警次数</td>
-            <td style="width:25%;border:1px solid #C53840" onclick="showTemperature()">预警级别</td>
-            <td style="width:25%;border:1px solid #C53840" onclick="showTemperature()">预警次数</td>
-        </tr>
-        <tr style="height:44pt;background:#FFFFFF;color:#555555;text-align:center">
-            <td style="width:25%;border:1px solid #C53840" onclick="showPressure()">高压预警</td>
-            <td style="width:25%;border:1px solid #C53840" onclick="showPressure()">2000次</td>
-            <td style="width:25%;border:1px solid #C53840" onclick="showTemperature()">高温预警</td>
-            <td style="width:25%;border:1px solid #C53840" onclick="showTemperature()">2000次</td>
-        </tr>
-    </table>
-</div>
-*@
 
 @*天然气相关*@
 <div id="naturalGas" style="width:100%;height:324pt;display:none">
@@ -703,83 +670,6 @@
     </table>
 </div>
 
-@*预警相关 放弃版*@
-@*
-<div id="temperatureOrPressurePreviewWarning" style="width:90%;margin-left:auto;margin-right:auto">
-    <div style="">
-
-        <table style="width:100%;border:1px solid #C53840;font-size:14pt">
-            <tr style="height:44pt;text-align:center;line-height:44pt;">
-                <td id="temperaturePreviewWarning" style="width:50%;background:#C53840;color:white" onclick="temperatureOnclick()">温度预警</td>
-                <td id="pressurePreviewWarning" onclick="pressureOnclick()">压力预警</td>
-            </tr>
-        </table>
-    </div>
-
-    <table id="temperaturePreviewWarningContent" style="width:100%;text-align:center;line-height:44px;border:1px solid red;">
-        <tbody style="width:100%">
-            <tr style="width:100%">
-                <td style="width:50%;height:44px;color:#C53840;border:1px solid #C53840">单位</td>
-                <td style="width:50%;color:#C53840;border:1px solid #C53840">平均预警</td>
-            </tr>
-            <tr>
-                <td style="width:50%;border:1px solid #C53840">A厂温度</td>
-                <td style="width:50%;border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="width:50%;border:1px solid #C53840">B厂</td>
-                <td style="width:50%;border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="width:50%;border:1px solid #C53840">C厂</td>
-                <td style="width:50%;border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="width:50%;border:1px solid #C53840">D厂</td>
-                <td style="width:50%;border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="width:50%;border:1px solid #C53840">E厂</td>
-                <td style="width:50%;border:1px solid #C53840">2000次</td>
-            </tr>
-        </tbody>
-
-    </table>
-
-    <table id="pressurePreviewWarningContent" style="width:100%;text-align:center;line-height:44px;border:1px solid red;display:none">
-        <tbody style="width:100%">
-            <tr>
-                <td style="width:50%;height:44px;color:#C53840;border:1px solid #C53840">单位</td>
-                <td style="color:#C53840;border:1px solid #C53840">平均预警</td>
-            </tr>
-            <tr>
-                <td style="border:1px solid #C53840">A厂压力</td>
-                <td style="border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="border:1px solid #C53840">B厂</td>
-                <td style="border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="border:1px solid #C53840">C厂</td>
-                <td style="border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="border:1px solid #C53840">D厂</td>
-                <td style="border:1px solid #C53840">2000次</td>
-            </tr>
-            <tr>
-                <td style="border:1px solid #C53840">E厂</td>
-                <td style="border:1px solid #C53840">2000次</td>
-            </tr>
-        </tbody>
-
-    </table>
-
-</div>
-*@
-
-
 @*预警相关 第二版*@
 <div id="previewWarningHead" style="width:90%;margin-left:auto;margin-right:auto;display:none">
     <div id="previewWarningTemparatureHead" style="float:left;width:49%;height:40px;text-align:center;background-color:#C53840;color:white;border:1px solid #C53840" onclick="ShowWDWarning()"><label style="line-height:40px;">温度报警</label></div>
@@ -802,6 +692,7 @@
         <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">重庆市</p>
     </div>
     *@
+
     <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
         <div style="float:left;height:50px;width:49%;border:1px solid #C53840">
             <p style="text-align:center;line-height:50px;color:#C53840">单位</p>
@@ -963,7 +854,6 @@
         $("#temperaturePreviewWarning").css("color", "black");
 
         document.getElementById("pressurePreviewWarningContent").style = "width:100%;text-align:center;line-height:44px;border:1px solid red;display:block";
-        //$("#pressurePreviewWarningContent").css("display", "block");
         $("#pressurePreviewWarning").css("background", "#C53840");
         $("#pressurePreviewWarning").css("color", "white");
     }
@@ -991,8 +881,7 @@
     }
 
     function ShowYLWarning() {
-        //darkgray
-        //       $("#DataContent").css("background-color", "blue");
+ 
         $("#WarningTitle").text("压力报警");
 
         $("#previewWarningTemparatureHead").css("background-color", "white");
@@ -1003,7 +892,6 @@
     }
 
     function ShowWDWarning() {
-        //       $("#DataContent").css("background-color", "yellow");
         $("#WarningTitle").text("温度报警");
 
         $("#previewWarningTemparatureHead").css("background-color", "#C53840");
@@ -1050,8 +938,6 @@
     function GoSettingView() {
         window.location.href = "/MainPage/SettingView";
     }
-
-
     function LocationView() {
         window.location.href = "/MainPage/LocationView";
     }
@@ -1288,6 +1174,4 @@
             ]
         });
     }
-
-
 </script>
