@@ -45,6 +45,9 @@
         function GoForgetPassword() {
             window.location.href = "/MainPage/ForgetPasswordView";
         }
+        function GoRegisterView() {
+            window.location.href = "/MainPage/RegisterView";
+        }
 
     </script>
 }
@@ -56,7 +59,7 @@
                 <div style="margin:0 8px">
                     <span style="color:#0D122F; font-size:4vw; text-align:left;width:20%;height:8%; float:left">用户名</span>
                     <input type="text" name="username" id="username" value="@CookiesUserName" autocomplete="off" style="float:left; width:55%;font-size:4vw;border:0px;outline:none;padding:2pt" />
-                    <input type="button" value="注册账号" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" />
+                    <input type="button" onclick="GoRegisterView()" value="注册账号" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" />
                 </div>
                 <hr id="hr1" style="margin:auto; width:98%;height:3px;border:none;border-top:3px ridge #2B5297" />
                 @if (LoginError)

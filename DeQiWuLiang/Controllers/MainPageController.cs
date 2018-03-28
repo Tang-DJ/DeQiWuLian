@@ -122,6 +122,11 @@ namespace DeQiWuLiang.Controllers
             return View("ForgetPasswordView");
         }
 
+        public ActionResult RegisterView()
+        {
+            return View("RegisterView");
+        }
+
         public ActionResult ChartView()
         {
             string UnitParam = Request.QueryString["Unit"] == null ? null : Request.QueryString["Unit"].ToString();
