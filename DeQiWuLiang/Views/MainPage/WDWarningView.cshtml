@@ -1,27 +1,25 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "WDWarningView";
     Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
 }
 @section head{
-    <link rel="stylesheet" href="~/Content/WeChat.css" />
-    <link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
-    <script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
+<link rel="stylesheet" href="~/Content/WeChat.css" />
+<link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
+<script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
 }
 
-<div style="position:relative;width:100%;">
-    <div style="margin:0 auto;width:46px;float:left;"><img style="width:46px;height:46px;" src="~/Content/logo.png" /></div>
-    <div style="float:left;width:120px;line-height:46px;text-align:center">X用X户X名X</div>
-    <div class="weui-search-bar" style="float:left;width:35%;">
-        @* 这里的action是直接到控制器的 *@
-        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
-            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
-        </div>
+<div style="position:relative;margin-bottom:52pt;">
+    <div style="height:50pt;">
+        <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+        <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
+        <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
     </div>
-    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
-        返回
+    <div style="padding:0 12pt;" onclick="ShowSearch()">
+        <div style="width:87%;"><input type="text" style="float: left;color:#19479d;width: 94%;height: 40pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;font-size: 16pt;outline: none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" placeholder="&emsp;请输入关键字" /></div>
+        <div style="float:left;height: 40pt;background: #19479d;width: 18%;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align: center;padding: 8pt"><img src="../../Content/Images/search2.png" /></div>
     </div>
 </div>
+
 <script type="text/javascript">
     function ShowSearch() {
         $("#SearchPad").css("display", "block");
@@ -44,14 +42,14 @@
 </script>
 
 <div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
-    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
-        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
+    <div style="height:40pt;float:left;width:20%;background-color:cornflowerblue;">
+        <p style="text-align:center;font-size:14pt;line-height:40pt;" onclick="cancelSearch()">返回</p>
     </div>
-    <div style="height:40px;float:left;width:60%;">
-        <p style="text-align:center;font-size:16px;line-height:40px;">搜索选项列表</p>
+    <div style="height:40pt;float:left;width:60%;">
+        <p style="text-align:center;font-size:14pt;line-height:40pt;">搜索选项列表</p>
     </div>
-    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
-        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="Search()">确定</p>
+    <div style="height:40pt;float:left;width:20%;background-color:cornflowerblue;">
+        <p style="text-align:center;font-size:14pt;line-height:40pt;" onclick="Search()">确定</p>
     </div>
     <div class="weui-cells__title" style="clear:both;">吨位</div>
     <div class="weui-cells">
@@ -191,82 +189,79 @@
         });
     }
 </script>
-<div style="height:60px;"></div>
+@*<div style="height:60px;"></div>*@
 
 
 
-
-
-
-<div>
-    <div style="float:left;width:50%;height:40px;text-align:center;background-color:darkorange;" onclick="ShowWDWarning()"><label style="line-height:40px;">温度报警</label></div>
-    <div style="float:left;width:50%;height:40px;text-align:center;background-color:darkgray;" onclick="ShowYLWarning()"><label style="line-height:40px;">压力报警</label></div>
+<div style="margin:12pt">
+    <div id="temparatureWarningHead" style="float:left;width:50%;height:40pt;text-align:center;background-color:#C53840;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;color:white;" onclick="ShowWDWarning()"><label style="line-height:55px;font-size:16px">温度报警</label></div>
+    <div id="pressureWarningHead" style="float:left;width:50%;height:40pt;text-align:center;background-color:white;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" onclick="ShowYLWarning()"><label style="line-height:55px;">压力报警</label></div>
 </div>
 
-<div id="DataContent" style="clear:both;width:100%;height:auto;border-top-style:solid;border-top-width:1px;background-color:darkorange">
-    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="EffTimeSpan()">
-        <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiTimeSpan">1周</p>
+<div id="DataContent" style="clear:both;height:auto;background-color:white;margin-left:12pt;margin-right:12pt;border:1px solid #C53840">
+    @*
+    <div style="height:40pt;float:left;width:20%;background-color:cadetblue;" onclick="EffTimeSpan()">
+        <p style="text-align:center;font-size:14pt;line-height:40pt;" id="EffiTimeSpan">1周</p>
     </div>
-    <div style="height:40px;float:left;width:60%;">
-        <p style="text-align:center;font-size:16px;" id="WarningTitle">温度报警</p>
+    *@
+    @*
+    <div style="height:40pt;float:left;width:60%;">
+        <p style="text-align:center;font-size:14pt;" id="WarningTitle">温度报警</p>
     </div>
-    <div style="height:40px;float:left;width:20%;background-color:cadetblue;" onclick="SelLocation()">
-        <p style="text-align:center;font-size:16px;line-height:40px;" id="EffiLocat">重庆市</p>
+    *@
+    @*
+    <div style="height:40pt;float:left;width:20%;background-color:cadetblue;" onclick="SelLocation()">
+        <p style="text-align:center;font-size:14pt;line-height:40pt;" id="EffiLocat">重庆市</p>
+    </div>
+    *@
+
+    <div style="clear:both;height:40pt;font-size:14pt;" onclick="DeviceListView()">
+        <div style="float:left;height:40pt;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;color:#C53840">单位</p>
+        </div>
+        <div style="float:left;height:40pt;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;color:#C53840">平均效率</p>
+        </div>
     </div>
 
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
-            <p style="text-align:center;line-height:50px;">A厂</p>
+    <div style="clear:both;height:40pt;font-size:14pt;" onclick="DeviceListView()">
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt">A厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">50次</p>
-        </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">  </p>
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">50次</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
-            <p style="text-align:center;line-height:50px;">B厂</p>
+    <div style="clear:both;height:40pt;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">B厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">50次</p>
-        </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">  </p>
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">50次</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
-            <p style="text-align:center;line-height:50px;">C厂</p>
+    <div style="clear:both;height:40pt;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">C厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">50次</p>
-        </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">  </p>
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">50次</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
-            <p style="text-align:center;line-height:50px;">D厂</p>
+    <div style="clear:both;height:40pt;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">D厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">50次</p>
-        </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">  </p>
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">50次</p>
         </div>
     </div>
-    <div style="clear:both;height:50px;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
-        <div style="float:left;height:50px;width:35%">
-            <p style="text-align:center;line-height:50px;">E厂</p>
+    <div style="clear:both;height:40pt;border-bottom-style:dotted;border-bottom-color:cadetblue;border-bottom-width:1px;" onclick="DeviceListView()">
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">E厂</p>
         </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">50 次</p>
-        </div>
-        <div style="float:left;height:50px;width:30%">
-            <p style="text-align:center;line-height:50px;">  </p>
+        <div style="float:left;width:50%;border:1px solid #C53840;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+            <p style="text-align:center;line-height:40pt;height:40pt;">50 次</p>
         </div>
     </div>
 
@@ -284,13 +279,25 @@
 
     function ShowYLWarning() {
         //darkgray
-        $("#DataContent").css("background-color", "darkgray");
+        //$("#DataContent").css("background-color", "darkgray");
         $("#WarningTitle").text("压力报警");
+
+        $("#pressureWarningHead").css("background-color", "#C53840");
+        $("#pressureWarningHead").css("color", "white");
+
+        $("#temparatureWarningHead").css("background-color", "white");
+        $("#temparatureWarningHead").css("color", "black");
     }
 
     function ShowWDWarning() {
-        $("#DataContent").css("background-color", "darkorange");
+        //$("#DataContent").css("background-color", "darkorange");
         $("#WarningTitle").text("温度报警");
+
+        $("#temparatureWarningHead").css("background-color", "#C53840");
+        $("#temparatureWarningHead").css("color", "white");
+
+        $("#pressureWarningHead").css("background-color", "white");
+        $("#pressureWarningHead").css("color", "black");
     }
 
     function DeviceListView() {
@@ -498,5 +505,36 @@
 
             ]
         });
+    }
+</script>
+
+<div style="clear:both;height:50px;width:100%;"></div>
+<div style="position:fixed;width:100%;bottom:0px;height:40pt;background-color:white;font-size:18pt;border:solid 1pt #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+    <div style="float:left;width:20%;text-align:center;background-color:#19479d"><span style="line-height:40pt;color:white" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoSettingView()">设置</span></div>
+</div>
+<script type="text/javascript">
+
+    function GoMainStateView() {
+        window.location.href = "/MainPage/MainStateView";
+    }
+
+    function GoEfficiencyView() {
+        window.location.href = "/MainPage/EfficiencyView";
+    }
+
+    function GoSafeStateView() {
+        window.location.href = "/MainPage/SafeStateView";
+    }
+
+    function GoMapView() {
+        window.location.href = "/MainPage/MapView";
+    }
+
+    function GoSettingView() {
+        window.location.href = "/MainPage/SettingView";
     }
 </script>
