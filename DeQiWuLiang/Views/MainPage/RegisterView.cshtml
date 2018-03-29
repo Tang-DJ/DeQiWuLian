@@ -1,0 +1,387 @@
+﻿@{
+    ViewBag.Title = "注册账号";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+@section head{
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<style>
+    html, body {
+        height: 100%;
+        overflow-y: hidden;
+    }
+
+    .register_form {
+        width: 100%;
+        height: 84%;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .top {
+        padding-top: 8%;
+        padding-left: 12pt;
+        padding-right: 12pt;
+    }
+
+    .logoimg {
+        width: 100%;
+    }
+
+    .errorimg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .iteams {
+        width: 100%;
+        height: 12%;
+        padding-top: 2pt;
+    }
+
+    .iteam {
+        width: 100%;
+        height: 40pt;
+        margin: auto;
+    }
+
+    .above {
+        width: 90%;
+        height: 18pt;
+        margin: auto;
+    }
+
+    .input_span {
+        float: right;
+        text-align: left;
+        font-size: 4vw;
+        width: 76%;
+        padding: 2pt;
+    }
+
+    .input {
+        border-width: 1.3pt;
+        border-style: none none none solid;
+        border-color:blue;
+        width: 97%;
+        font-size: 4vw;
+        outline: none;
+        padding-left:3%;
+    }
+
+    .text_span {
+        color: #0D122F;
+        font-size: 4vw;
+        text-align: left;
+        width: 20%;
+        float: left;
+        padding: 2pt;
+    }
+
+    .hr {
+        margin: auto;
+        width: 90%;
+        height: 3px;
+        border: none;
+        border-top: 3px ridge #2B5297;
+    }
+
+    .errormsg {
+        margin: auto;
+        width: 90%;
+        height: 14pt;
+        font-size: 3vw;
+        color: red;
+        text-align: left;
+        display: none;
+    }
+
+    .button1 {
+        border:none;
+        float: left;
+        color: #ffffff;
+        width: 24vw;
+        height: 10vw;
+        font-size: 5vw;
+        background-color: #2B5297;
+        border-radius: 5pt;
+    }
+
+    .button2 {
+        border:none;
+        float: right;
+        color: #ffffff;
+        width: 24vw;
+        height: 10vw;
+        font-size: 5vw;
+        background-color: #2B5297;
+        border-radius: 5pt;
+    }
+</style>
+
+<script type="text/javascript">
+    function CheckUsername() {
+        var username = document.getElementById("username");
+        var hr = document.getElementById("hr1");
+        var span = document.getElementById("username_span");
+        var error = document.getElementById("username_error");
+        if (username.value == null || username.value.length <= 0) {
+            username.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+            error.innerText = "用户名不能为空";
+            return false;
+        } else {
+            username.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
+            error.innerText = "";
+            return true;
+        }
+    }
+
+    function CheckPassword() {
+        var password = document.getElementById("password");
+        var hr = document.getElementById("hr2");
+        var span = document.getElementById("password_span");
+        var error = document.getElementById("password_error");
+        if (password.value == null || password.value.length <= 0) {
+            password.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+            error.innerText = "密码不能为空";
+            return false;
+        } else {
+            password.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
+            error.innerText = "";
+            return true;
+        }
+    }
+
+    function CheckSurePassword() {
+        var password = document.getElementById("password");
+        var surepassword = document.getElementById("sure_password");
+        var hr = document.getElementById("hr3");
+        var span = document.getElementById("sure_password_span");
+        var error = document.getElementById("sure_password_error");
+        if (password.value != null && password.value.length > 0) {
+            if (surepassword.value != password.value) {
+                surepassword.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+                hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+                span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+                error.innerText = "密码不一致";
+                return false;
+            } else {
+                surepassword.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+                hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
+                span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
+                error.innerText = "";
+                return true;
+            }
+        }
+        else {
+            surepassword.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+            error.innerText = "密码不能为空";
+            return false;
+        }
+    }
+
+    function CheckCopname() {
+        var copname = document.getElementById("copname");
+        var hr = document.getElementById("hr4");
+        var span = document.getElementById("copname_span");
+        var error = document.getElementById("copname_error");
+        if (copname.value == null || copname.value.length <= 0) {
+            copname.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+            error.innerText = "单位名称不能为空";
+            return false;
+        } else {
+            copname.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
+            error.innerText = "";
+            return true;
+        }
+    }
+
+    function CheckAddress() {
+        var address = document.getElementById("address");
+        var hr = document.getElementById("hr5");
+        var span = document.getElementById("address_span");
+        var error = document.getElementById("address_error");
+        if (address.value == null || address.value.length <= 0) {
+            address.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+            error.innerText = "单位地址不能为空";
+            return false;
+        } else {
+            address.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
+            error.innerText = "";
+            return true;
+        }
+    }
+
+    function CheckPhone() {
+        var phone = document.getElementById("phone");
+        var hr = document.getElementById("hr6");
+        var span = document.getElementById("phone_span");
+        var error = document.getElementById("phone_error");
+        if (phone.value == null || phone.value.length <= 0) {
+            phone.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+            error.innerText = "电话不能为空";
+            return false;
+        } else {
+            phone.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
+            error.innerText = "";
+            return true;
+        }
+    }
+
+    function CheckMail() {
+        var mail = document.getElementById("mail");
+        var hr = document.getElementById("hr7");
+        var span = document.getElementById("mail_span");
+        var error = document.getElementById("mail_error");
+        if (mail.value == null || mail.value.length <= 0) {
+            mail.style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge red";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:block";
+            error.innerText = "电话不能为空";
+            return false;
+        } else {
+            mail.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
+            span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
+            error.innerText = "";
+            return true;
+        }
+    }
+
+    function CheckAll() {
+        if (CheckUsername() != false & CheckPassword() != false & CheckSurePassword() != false & CheckCopname() != false & CheckAddress() != false & CheckPhone() != false & CheckMail() != false) {
+            document.getElementById("form").submit();
+        }
+    }
+
+    function GoBackToLoginView() {
+        window.location.href = "/MainPage/Login";
+    }
+</script>
+
+<div class="top">
+    <img class="logoimg" src="~/Content/Images/registerlogo.png" />
+</div>
+<form class="register_form" action="">
+    <div class="iteams">
+        <div class="iteam">
+            <div class="above">
+                <span class="text_span">用户名</span>
+                <span class="input_span"><input id="username" class="input" type="text" autocomplete="off" /></span>
+            </div>
+            <hr id="hr1" class="hr" />
+            <div class="errormsg" id="username_span">
+                <span style="float:left" id="username_error"></span>
+                <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+            </div>
+        </div>
+    </div>
+    <div class="iteams">
+        <div class="iteam">
+            <div class="above">
+                <span class="text_span">密码</span>
+                <span class="input_span"><input id="password" class="input" type="password" autocomplete="off" /></span>
+            </div>
+            <hr id="hr2" class="hr" />
+            <div class="errormsg" id="password_span">
+                <span style="float:left" id="password_error"></span>
+                <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+            </div>
+        </div>
+    </div>
+    <div class="iteams">
+        <div class="iteam">
+            <div class="above">
+                <span class="text_span">确认密码</span>
+                <span class="input_span"><input id="sure_password" class="input" type="password" autocomplete="off" /></span>
+            </div>
+            <hr id="hr3" class="hr" />
+            <div class="errormsg" id="sure_password_span">
+                <span style="float:left" id="sure_password_error"></span>
+                <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+            </div>
+        </div>
+    </div>
+    <div class="iteams">
+        <div class="iteam">
+            <div class="above">
+                <span class="text_span">单位名称</span>
+                <span class="input_span"><input id="copname" class="input" type="text" autocomplete="off" /></span>
+            </div>
+            <hr id="hr4" class="hr" />
+            <div class="errormsg" id="copname_span">
+                <span id="copname_error" style="float:left"></span>
+                <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+            </div>
+        </div>
+    </div>
+    <div class="iteams">
+        <div class="iteam">
+            <div class="above">
+                <span class="text_span">单位地址</span>
+                <span class="input_span"><input id="address" class="input" type="text" autocomplete="off" /></span>
+            </div>
+            <hr id="hr5" class="hr" />
+            <div class="errormsg" id="address_span">
+                <span style="float:left" id="address_error"></span>
+                <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+            </div>
+        </div>
+    </div>
+    <div class="iteams">
+        <div class="iteam">
+            <div class="above">
+                <span class="text_span">手机号</span>
+                <span class="input_span"><input id="phone" class="input" type="text" autocomplete="off" /></span>
+            </div>
+            <hr id="hr6" class="hr" />
+            <div class="errormsg" id="phone_span">
+                <span style="float:left" id="phone_error"></span>
+                <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+            </div>
+        </div>
+    </div>
+    <div class="iteams">
+        <div class="iteam">
+            <div class="above">
+                <span class="text_span">邮箱</span>
+                <span class="input_span"><input id="mail" class="input" type="text" autocomplete="off" /></span>
+            </div>
+            <hr id="hr7" class="hr" />
+            <div class="errormsg" id="mail_span">
+                <span style="float:left" id="mail_error"></span>
+                <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+            </div>
+        </div>
+    </div>
+    <div style="width:100%;height:10%;padding-top:6pt">
+        <div style="width:90%; margin:auto">
+            <button class="button1" type="button" onclick="GoBackToLoginView()">返回</button>
+            <button class="button2" type="button" onclick="CheckAll()">确认注册</button>
+        </div>
+    </div>
+</form>
+}

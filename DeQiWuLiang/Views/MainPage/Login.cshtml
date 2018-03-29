@@ -26,8 +26,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
         html, body {
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        .form {
             width: 100%;
-            
+            height: 48%;
+            bottom: 1%;
+            position: absolute;
+        }
+
+        .iteams {
+            width: 100%;
+            height: 22%;
+            padding-top: 2pt;
+        }
+
+        .iteam {
+            width: 100%;
+            height: 40pt;
+            margin: auto;
+        }
+
+        .above {
+            width: 90%;
+            height: 18pt;
+            margin: auto;
+        }
+
+        .text_span {
+            color: #0D122F;
+            font-size: 4vw;
+            text-align: left;
+            width: 20%;
+            float: left;
+            padding: 2pt;
+        }
+
+        .input_span {
+            text-align: left;
+            font-size: 4vw;
+            width: 52%;
+            padding: 2pt;
+        }
+
+        .input {
+            border-width: 1.3pt;
+            border-style: none none none solid;
+            border-color: blue;
+            width: 52%;
+            font-size: 4vw;
+            outline: none;
+            padding-left: 3%;
+        }
+
+        .hr {
+            margin: auto;
+            width: 90%;
+            height: 3px;
+            border: none;
+            border-top: 3px ridge #2B5297;
+        }
+
+        .errormsg {
+            margin: auto;
+            width: 90%;
+            height: 14pt;
+            font-size: 3vw;
+            color: red;
+            text-align: left;
+        }
+
+        .errorimg {
+            width: 100%;
+            height: 100%
+        }
+
+        .button_span {
+            float: right;
+            font-size: 4vw;
+            width: 18%;
+            padding: 2pt;
+        }
+
+        .button1 {
+            width: 100%;
+            text-align: right;
+            float: right;
+            color: #2B5297;
+            font-size: 4vw;
+            border: none;
+            background-color: white;
+        }
+
+        .label {
+            display: inline-block;
+            width: 3vw;
+            height: 3vw;
+        }
+
+        .button2 {
+            border:none;
+            color: #ffffff;
+            width: 30vw;
+            height: 14vw;
+            font-size: 6vw;
+            background-color: #2B5297;
+            border-radius: 5pt;
+        }
+
+        .footer {
+            margin: auto;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+            font-size: 4vw;
+            padding-top: 2%;
         }
     </style>
     <script type="text/javascript">
@@ -45,57 +160,68 @@
         function GoForgetPassword() {
             window.location.href = "/MainPage/ForgetPasswordView";
         }
+        function GoRegisterView() {
+            window.location.href = "/MainPage/RegisterView";
+        }
 
     </script>
 }
-<div style="padding-left:8%;padding-right:8%;margin-bottom:330px;"><img style="width:100%;" src="~/Content/Images/biglogo.png" /></div>
-<div style="width:100%;">
-    <form action="LoginCheck" method="post" style="width:100%; bottom:5%;position:absolute;">
-        <div style="margin:auto; width:100%; padding-top:4%">
-            <div style="text-align:center; width:80%; height:20pt; margin:auto">
-                <div style="margin:0 8px">
-                    <span style="color:#0D122F; font-size:4vw; text-align:left;width:20%;height:8%; float:left">用户名</span>
-                    <input type="text" name="username" id="username" value="@CookiesUserName" autocomplete="off" style="float:left; width:55%;font-size:4vw;border:0px;outline:none;padding:2pt" />
-                    <input type="button" value="注册账号" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" />
+<div style="padding-left:8%;padding-right:8%;margin-top:2%"><img style="width:100%;" src="~/Content/Images/biglogo.png" /></div>
+<div style="width:100%;height:100%">
+    <form class="form" action="LoginCheck" method="post">
+        <div class="iteams">
+            <div class="iteam">
+                <div class="above">
+                    <span class="text_span">用户名</span>
+                    <span class="input_span"><input name="username" id="username" value="@CookiesUserName" class="input" type="text" autocomplete="off" /></span>
+                    <span class="button_span"><input class="button1" type="button" value="注册账号" onclick="GoRegisterView()" /></span>
                 </div>
-                <hr id="hr1" style="margin:auto; width:98%;height:3px;border:none;border-top:3px ridge #2B5297" />
+                <hr id="hr1" class="hr" />
                 @if (LoginError)
                 {
-                    <p style="font-size:3vw;color:red;text-align:left">@ViewBag.ErrorMsg</p>
+                    <div class="errormsg">
+                        <span style="float:left">@ViewBag.ErrorMsg</span>
+                        <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+                    </div>
                     <script type="text/javascript">
-                        document.getElementById("hr1").style = "margin:auto; width:98%;height:3px;border:none;border-top:3px ridge red";
+                        document.getElementById("hr1").style = "margin:auto;width:90%;height:3px;border:none;border-top:3px ridge red";
+                        document.getElementById("username").style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:52%;font-size:4vw;outline:none;padding-left:3%";
                     </script>
                 }
             </div>
         </div>
-        <div style="margin:auto; width:100%; padding-top:10%">
-            <div style="text-align:center; width:80%; margin:auto">
-                <div style="margin:0 8px">
-                    <span style="color:#0D122F; font-size:4vw; text-align:left;width:20%; float:left">密码</span>
-                    <input type="password" name="password" id="password" value="@CookiesPassWord" autocomplete="off" style="float:left; width:30%; font-size:4vw;border:0px;outline:none;padding:2pt" />
-                    <input type="button" value="忘记密码" style="float:right; color:#2B5297; font-size:4vw; border:0; background-color:white" onclick="GoForgetPassword()" />
+        <div class="iteams">
+            <div class="iteam">
+                <div class="above">
+                    <span class="text_span">密码</span>
+                    <span class="input_span"><input name="password" id="password" value="@CookiesPassWord" class="input" type="password" autocomplete="off" /></span>
+                    <span class="button_span"><input class="button1" type="button" value="忘记密码" onclick="GoForgetPassword()" /></span>
                 </div>
-                <hr id="hr2" style="margin:auto; width:98%;height:3px;border:none;border-top:3px ridge #2B5297;" />
+                <hr id="hr2" class="hr" />
                 @if (LoginError)
                 {
-                    <p style="font-size:3vw;color:red;text-align:left">@ViewBag.ErrorMsg</p>
+                    <div class="errormsg">
+                        <span style="float:left">@ViewBag.ErrorMsg</span>
+                        <span style="float:right;width:4vw;height:4vw"><img class="errorimg" src="~/Content/Images/worning.png" /></span>
+                    </div>
                     <script type="text/javascript">
-                        document.getElementById("hr2").style = "margin:auto; width:98%;height:3px;border:none;border-top:3px ridge red";
+                        document.getElementById("hr2").style = "margin:auto;width:90%;height:3px;border:none;border-top:3px ridge red";
+                        document.getElementById("password").style = "border-width:1.3pt;border-style:none none none solid;border-color:red;width:52%;font-size:4vw;outline:none;padding-left:3%";
                     </script>
                 }
             </div>
         </div>
 
 
-        <div style="text-align:left;padding-left:11%; padding-top:2%">
+        <div style="text-align:left;padding-left:10%;height:8%; padding-top:2%">
             <input style="width:16pt; height:16pt; display:none" type="checkbox" class="checkbox" name="checkbox" id="checkbox" placeholder="checkbox" autocomplete="off">
-            <label onclick="checkbox()" for="checkbox" style="display:inline-block; width:3vw; height:3vw;"><img id="img" src="~/Content/Images/remembernotchecked.png" style="width:100%; height:100%" /></label>
+            <label class="label" onclick="checkbox()" for="checkbox"><img id="img" src="~/Content/Images/remembernotchecked.png" style="width:100%; height:100%" /></label>
             <span style="margin:auto; font-size:4vw;color:#2B5297;font-weight:500">记住我的帐号</span>
         </div>
-        <div style="margin:auto; width:30vw; height:14vw; padding-top:2%">
-            <button type="submit" style="color:#ffffff; width:30vw; height:14vw; font-size:6vw;background-color:#2B5297;border-radius:5pt">登录</button>
+        <div style="margin:auto; width:30vw; height:20%; padding-top:2%">
+            <button class="button2" type="submit">登录</button>
         </div>
-        <div style="margin:auto; width:100%; text-align:center; font-size:4vw; padding-top:2%">@@ 重庆市特种设备检测研究院</div>
+        <div class="footer">@@ 重庆市特种设备检测研究院</div>
     </form>
 </div>
 
