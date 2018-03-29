@@ -6,6 +6,26 @@
 @section head{
     <link rel="stylesheet" href="~/Content/WeChat.css?a=@DateTime.Now.ToShortTimeString()" />
     <script src="~/Scripts/echarts.common.min.js"></script>
+<style>
+    .newWeui-cells {
+        margin-top: 1.17647059em;
+        background-color: #fff;
+        line-height: 1.47058824;
+        font-size: 17px;
+        overflow: hidden;
+        position: relative;
+    }
+    .newWeui-cell {
+        padding: 10px 15px;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+</style>
 }
 
     <div style="position:relative;margin-bottom:52pt;">
@@ -50,57 +70,57 @@
     <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="Search()">确定</p>
     </div>
-    <div class="weui-cells__title" style="clear:both;">吨位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">吨位</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__bd">
                 <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
             </div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
+    <div class="newWeui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__hd">
                 <input class="weui-input" type="number" placeholder="最小值">
             </div>
-            <div class="weui-cell__hd">
+            <div class="newWeui-cell__hd">
                 <input class="weui-input" type="number" placeholder="最大值">
             </div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">时间区间选择</div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">时间区间选择</div>
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timestart" type="text" value="2017-01-01 12:00">
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">区域</div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">区域</div>
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">制造单位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">制造单位</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__bd">
                 <input class="weui-input" type="text" placeholder="默认为全部">
             </div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">使用单位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">使用单位</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__bd">
                 <input class="weui-input" type="text" placeholder="默认为全部">
             </div>
         </div>
@@ -190,12 +210,12 @@
 </script>
 
 <h2 style="text-align:center;width:100%;font-size:18pt;">设备名称</h2>
-<div class="weui-cells">
-    <div class="weui-cell" style="font-size:14pt;">
-        <div class="weui-cell__hd" style="width:55%;">
+<div class="newnewWeui-cells" style="border:none;">
+    <div class="newWeui-cell" style="font-size:14pt;">
+        <div class="newWeui-cell__hd" style="width:55%;">
             <img src="../../Content/Images/boiler.png" style="width:65%;margin-left:10%;"/>
         </div>
-        <div class="weui-cell__hd" style="width:45%;">
+        <div class="newWeui-cell__hd" style="width:45%;">
             <p style="width:auto;">编号:<span>xxxx</span></p>
             <p style="width:auto;">型号:<span>xxxx</span></p>
             <p style="width:auto;">状态:<span>xxxx</span></p>
@@ -208,11 +228,11 @@
             <p style="width:auto;">Tpy:<span>xxxx</span></p>
         </div>
     </div>
-    <div class="weui-cell" style="font-size: 14pt;border-radius: 14pt;border: 1pt solid #19479d;margin: 12pt;padding:0;">
-        <div class="weui-cell__hd" id="errchartbtn" style="width:50%;text-align:center;background-color:antiquewhite;border-bottom-left-radius:14pt;border-top-left-radius:14pt;" onclick="getErrChart()">
+    <div class="newWeui-cell" style="font-size: 14pt;border-radius: 15pt;border: 1pt solid #19479d;margin: 12pt;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+        <div class="newWeui-cell__hd" id="errchartbtn" style="width:50%;text-align:center;background-color:antiquewhite;border-bottom-left-radius:14pt;border-top-left-radius:14pt;" onclick="getErrChart()">
             <p style="width:auto;height: 28pt;line-height: 28pt;">故障图表</p>
         </div>
-        <div class="weui-cell__hd" id="effichartbtn" style="width:50%;text-align:center;background-color:aqua;border-bottom-right-radius:14pt;border-top-right-radius:14pt;" onclick="getEffiChart()">
+        <div class="newWeui-cell__hd" id="effichartbtn" style="width:50%;text-align:center;background-color:aqua;border-bottom-right-radius:14pt;border-top-right-radius:14pt;" onclick="getEffiChart()">
             <p style="width: auto;height: 28pt;line-height: 28pt;">效率图表</p>
         </div>
     </div>
@@ -221,15 +241,15 @@
     <div style="width:100%;height:12pt;"></div>
     <div style="width:100%;height:400px;margin-bottom: 25pt;" id="main2"></div>
 
-    @*<div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
-        <div class="weui-cell__bd">
+    @*<div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timestart" type="text" value="2017-01-01 12:00">
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
         </div>
     </div>*@
@@ -251,8 +271,9 @@
                 trigger: 'axis'
             },
             grid: {
+                top: '20%',
                 left: '3%',
-                right: '10%',
+                right: '15%',
                 bottom: '0%',
                 containLabel: true
             },
@@ -301,7 +322,7 @@
             },
             grid: {
                 left: '3%',
-                right: '10%',
+                right: '15%',
                 bottom: '0%',
                 containLabel: true
             },
@@ -363,7 +384,7 @@
             },
             grid: {
                 left: '3%',
-                right: '10%',
+                right: '15%',
                 bottom: '0%',
                 containLabel: true
             },
@@ -393,7 +414,7 @@
                             { type: 'average', name: '平均值' },
                             [{
                                 symbol: 'none',
-                                x: '90%',
+                                x: '80%',
                                 yAxis: 'max'
                             }, {
                                 symbol: 'circle',
