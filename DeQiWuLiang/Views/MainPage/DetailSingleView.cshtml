@@ -6,21 +6,36 @@
 @section head{
     <link rel="stylesheet" href="~/Content/WeChat.css?a=@DateTime.Now.ToShortTimeString()" />
     <script src="~/Scripts/echarts.common.min.js"></script>
+<style>
+    .newWeui-cells {
+        background-color: #fff;
+        font-size: 14pt;
+        overflow: hidden;
+    }
+    .newWeui-cell {
+        padding: 10px 15px;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+</style>
 }
 
-<div style="position:relative;width:100%;">
-    <div style="margin:0 auto;width:46px;float:left;"><img style="width:46px;height:46px;" src="~/Content/logo.png" /></div>
-    <div style="float:left;width:120px;line-height:46px;text-align:center">X用X户X名X</div>
-    <div class="weui-search-bar" style="float:left;width:35%;">
-        @* 这里的action是直接到控制器的 *@
-        <div class="weui-search-bar__box" style="height:30px;text-align:center;background-color:white;" onclick="ShowSearch()">
-            <label style="text-align:center;"><span class="weui-icon-search"></span>搜索</label>
+    <div style="position:relative;margin-bottom:52pt;">
+        <div style="height:50pt;">
+            <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+            <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
+            <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
+        </div>
+        <div style="padding:0 12pt;" onclick="ShowSearch()">
+            <div style="width:87%;"><input type="text" style="float: left;color:#19479d;width: 94%;height: 40pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;font-size: 16pt;outline: none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" placeholder="&emsp;请输入关键字" /></div>
+            <div style="float:left;height: 40pt;background: #19479d;width: 18%;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align: center;padding: 8pt"><img src="../../Content/Images/search2.png" /></div>
         </div>
     </div>
-    <div style="position:absolute;right:0;height:46px;width:40px;text-align:center;line-height:46px;background-color:aquamarine;" onclick="GoBack()">
-        返回
-    </div>
-</div>
 <script type="text/javascript">
     function ShowSearch() {
         $("#SearchPad").css("display", "block");
@@ -52,57 +67,57 @@
     <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="Search()">确定</p>
     </div>
-    <div class="weui-cells__title" style="clear:both;">吨位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">吨位</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__bd">
                 <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
             </div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
+    <div class="newWeui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__hd">
                 <input class="weui-input" type="number" placeholder="最小值">
             </div>
-            <div class="weui-cell__hd">
+            <div class="newWeui-cell__hd">
                 <input class="weui-input" type="number" placeholder="最大值">
             </div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">时间区间选择</div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">时间区间选择</div>
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timestart" type="text" value="2017-01-01 12:00">
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">区域</div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">区域</div>
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">制造单位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">制造单位</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__bd">
                 <input class="weui-input" type="text" placeholder="默认为全部">
             </div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">使用单位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
+    <div class="newWeui-cells__title" style="clear:both;">使用单位</div>
+    <div class="newWeui-cells">
+        <div class="newWeui-cell">
+            <div class="newWeui-cell__bd">
                 <input class="weui-input" type="text" placeholder="默认为全部">
             </div>
         </div>
@@ -190,52 +205,51 @@
         });
     }
 </script>
-<div style="height:60px;"></div>
 
-
-
-<h2 style="text-align:center;width:100%;">设备名称</h2>
-<div class="weui-cells">
-    <div class="weui-cell">
-        <div class="weui-cell__hd" style="width:50%;">
-            <p style="width:auto;">型号:<span>xxxx</span></p>
+<h2 style="text-align:center;width:100%;font-size:18pt;">设备名称</h2>
+<div class="newnewWeui-cells" style="border:none;">
+    <div class="newWeui-cell" style="font-size:14pt;">
+        <div class="newWeui-cell__hd" style="width:55%;">
+            <img src="../../Content/Images/boiler.png" style="width:65%;margin-left:10%;"/>
         </div>
-        <div class="weui-cell__hd" style="width:50%;">
+        <div class="newWeui-cell__hd" style="width:45%;">
             <p style="width:auto;">编号:<span>xxxx</span></p>
-        </div>
-    </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd" style="width:50%;">
+            <p style="width:auto;">型号:<span>xxxx</span></p>
             <p style="width:auto;">状态:<span>xxxx</span></p>
-        </div>
-        <div class="weui-cell__hd" style="width:50%;">
             <p style="width:auto;">地址:<span>xxxx</span></p>
+            <p style="width:auto;">氧气:<span>xxxx</span></p>
+            <p style="width:auto;">冷空气温度:<span>xxxx</span></p>
+            <p style="width:auto;">表面温度:<span>xxxx</span></p>
+            <p style="width:auto;">蒸汽压力:<span>xxxx</span></p>
+            <p style="width:auto;">一氧化碳:<span>xxxx</span></p>
+            <p style="width:auto;">Tpy:<span>xxxx</span></p>
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd" style="width:50%;text-align:center;background-color:antiquewhite;" onclick="getErrChart()">
-            <p style="width:auto;">故障图表</p>
+    <div class="newWeui-cell" style="font-size: 14pt;height:28pt;border-radius: 15pt;border: 1px solid #19479d;margin: 12pt;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+        <div class="newWeui-cell__hd" id="errchartbtn" style="width:50%;text-align:center;background-color:antiquewhite;border-radius:15pt;border: 1px solid #19479d;margin:0;" onclick="getErrChart()">
+            <p style="width:100%;height: 27pt;line-height: 26pt;">故障图表</p>
         </div>
-        <div class="weui-cell__hd" style="width:50%;text-align:center;background-color:aqua;" onclick="getEffiChart()">
-            <p style="width:auto;">效率图表</p>
+        <div class="newWeui-cell__hd" id="effichartbtn" style="width:50%;text-align:center;background-color:aqua;border-bottom-right-radius:15pt;border-radius:15pt;margin:0;" onclick="getEffiChart()">
+            <p style="width: auto;height: 27pt;line-height: 26pt;">效率图表</p>
         </div>
     </div>
 
     <div style="width:100%;height:400px;" id="main1"></div>
-    <div style="width:100%;height:400px;" id="main2"></div>
+    <div style="width:100%;height:12pt;"></div>
+    <div style="width:100%;height:400px;margin-bottom: 25pt;" id="main2"></div>
 
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
-        <div class="weui-cell__bd">
+    @*<div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timestart" type="text" value="2017-01-01 12:00">
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
-        <div class="weui-cell__bd">
+    <div class="newWeui-cell">
+        <div class="newWeui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
+        <div class="newWeui-cell__bd">
             <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
         </div>
-    </div>
+    </div>*@
 </div>
 
 <script type="text/javascript">
@@ -244,17 +258,19 @@
         var myChart2 = echarts.init(document.getElementById("main2"));
         option1 = {
             title: {
+                left: 'center',
                 text: '排烟温度',
+                textStyle: {
+                    fontSize: 23,
+                }
             },
             tooltip: {
                 trigger: 'axis'
             },
-            legend: {
-                data: ['排烟温度']
-            },
             grid: {
+                top: '20%',
                 left: '3%',
-                right: '4%',
+                right: '15%',
                 bottom: '0%',
                 containLabel: true
             },
@@ -265,6 +281,7 @@
             },
             yAxis: {
                 type: 'value',
+                min: 50,
                 axisLabel: {
                     formatter: '{value} °C'
                 }
@@ -291,17 +308,18 @@
 
         option2 = {
             title: {
+                left: 'center',
                 text: '效率',
+                textStyle: {
+                    fontSize: 23,
+                }
             },
             tooltip: {
                 trigger: 'axis'
             },
-            legend: {
-                data: ['效率']
-            },
             grid: {
                 left: '3%',
-                right: '4%',
+                right: '15%',
                 bottom: '0%',
                 containLabel: true
             },
@@ -331,7 +349,7 @@
                             { type: 'average', name: '平均值' },
                             [{
                                 symbol: 'none',
-                                x: '90%',
+                                x: '80%',
                                 yAxis: 'max'
                             }, {
                                 symbol: 'circle',
@@ -352,17 +370,18 @@
 
         option3 = {
             title: {
+                left: 'center',
                 text: '压力',
+                textStyle: {
+                    fontSize: 23,
+                }
             },
             tooltip: {
                 trigger: 'axis'
             },
-            legend: {
-                data: ['压力']
-            },
             grid: {
                 left: '3%',
-                right: '4%',
+                right: '15%',
                 bottom: '0%',
                 containLabel: true
             },
@@ -392,7 +411,7 @@
                             { type: 'average', name: '平均值' },
                             [{
                                 symbol: 'none',
-                                x: '90%',
+                                x: '80%',
                                 yAxis: 'max'
                             }, {
                                 symbol: 'circle',
@@ -422,47 +441,24 @@
         //myChart2.setOption(option3, true);
 
         function getErrChart() {
-
+            $('#errchartbtn').css({'background-color': '#19479d', 'border-radius': '15pt','border': '1px solid #19479d','color':'white'});
+            $('#effichartbtn').css({ 'background-color': 'white', 'border-radius': '15pt','border': 'none','color':'black'});
             $("#main2").css("display", "block");
             myChart1.setOption(option1, true);
             myChart2.setOption(option3, true);
         }
 
         function getEffiChart() {
-            $("#main2").css("display", "none");
-            myChart1.setOption(option2, true);
-        }
+            $('#errchartbtn').css({ 'background-color': 'white', 'border-radius': '15pt', 'border': 'none', 'color': 'black' });
+            $('#effichartbtn').css({ 'background-color': '#19479d', 'border-radius': '15pt', 'border': '1px solid #19479d', 'color': 'white' });
+                $("#main2").css("display", "none");
+                myChart1.setOption(option2, true);
+    }
+    window.onresize = function () {
+        myChart1.resize();
+        myChart2.resize();
+    }
 </script>
-
-
-
-
-
-
-
-<div style="position:relative;background-image:url(/Content/Images/boiler.png);background-size:100% 100%;width:100%;height:300px;">
-    <div style="position:absolute;top:10px;left:10px;width:auto;height:30px;">
-        <p style="font-weight:bolder;">Tpy:<span>5</span>℃</p>
-    </div>
-    <div style="position:absolute;bottom:10px;left:10px;width:auto;height:30px;">
-        <p style="font-weight:bolder;">一氧化碳CO:<span>0.1</span>%</p>
-    </div>
-    <div style="position:absolute;top:20px;right:10px;width:auto;height:30px;">
-        <p style="font-weight:bolder;">氧气O<span style="font-size:0.5em;">2</span>:<span>20</span>%</p>
-    </div>
-
-    <div style="position:absolute;top:60px;right:10px;width:auto;height:30px;background-color:rgba(255,255,255,0.6);">
-        <p style="font-weight:bolder;">冷空气温度T<span style="font-size:0.5em;">lk</span>:<span>10</span>℃</p>
-    </div>
-
-    <div style="position:absolute;top:100px;right:10px;width:auto;height:30px;background-color:rgba(255,255,255,0.2);">
-        <p style="font-weight:bolder;color:crimson">表面温度T<span style="font-size:0.5em;">bm</span>:<span>19</span>℃</p>
-    </div>
-    <div style="position:absolute;top:140px;right:10px;width:auto;height:30px;background-color:rgba(255,255,255,0.2);">
-        <p style="font-weight:bolder;">蒸汽压力P<span style="font-size:0.5em;"></span>:<span>20</span>KPa</p>
-    </div>
-</div>
-
 
 <script type="text/javascript">
     $("#timestart").datetimePicker({
@@ -486,12 +482,12 @@
 
 
 <div style="clear:both;height:50px;width:100%;"></div>
-<div style="position:fixed;width:100%;bottom:0px;height:50px;background-color:white;">
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMainStateView()">首页</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoEfficiencyView()">能效</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSafeStateView()">安全</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoMapView()">地图</span></div>
-    <div style="float:left;width:20%;text-align:center;"><span style="line-height:50px;" onclick="GoSettingView()">设置</span></div>
+<div style="position:fixed;width:100%;bottom:0px;height:40pt;background-color:white;font-size:18pt;border:solid 1pt #19479d;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoMainStateView()">首页</span></div>
+    <div style="float:left;width:20%;text-align:center;background-color:#19479d"><span style="line-height:40pt;color:white;" onclick="GoEfficiencyView()">能效</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoSafeStateView()">安全</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoMapView()">地图</span></div>
+    <div style="float:left;width:20%;text-align:center;"><span style="line-height:40pt;" onclick="GoSettingView()">设置</span></div>
 </div>
 <script type="text/javascript">
 
