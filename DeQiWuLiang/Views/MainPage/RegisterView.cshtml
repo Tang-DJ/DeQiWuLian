@@ -63,11 +63,11 @@
     .input {
         border-width: 1.3pt;
         border-style: none none none solid;
-        border-color:blue;
+        border-color: #2B5297;
         width: 97%;
         font-size: 4vw;
         outline: none;
-        padding-left:3%;
+        padding-left: 3%;
     }
 
     .text_span {
@@ -133,7 +133,7 @@
             error.innerText = "用户名不能为空";
             return false;
         } else {
-            username.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            username.style = "border-width:1.3pt;border-style:none none none solid;border-color:#2B5297;width:97%;font-size:4vw;outline:none;padding-left:3%";
             hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
             span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
             error.innerText = "";
@@ -153,7 +153,7 @@
             error.innerText = "密码不能为空";
             return false;
         } else {
-            password.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            password.style = "border-width:1.3pt;border-style:none none none solid;border-color:#2B5297;width:97%;font-size:4vw;outline:none;padding-left:3%";
             hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
             span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
             error.innerText = "";
@@ -175,7 +175,7 @@
                 error.innerText = "密码不一致";
                 return false;
             } else {
-                surepassword.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+                surepassword.style = "border-width:1.3pt;border-style:none none none solid;border-color:#2B5297;width:97%;font-size:4vw;outline:none;padding-left:3%";
                 hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
                 span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
                 error.innerText = "";
@@ -203,7 +203,7 @@
             error.innerText = "单位名称不能为空";
             return false;
         } else {
-            copname.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            copname.style = "border-width:1.3pt;border-style:none none none solid;border-color:#2B5297;width:97%;font-size:4vw;outline:none;padding-left:3%";
             hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
             span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
             error.innerText = "";
@@ -223,7 +223,7 @@
             error.innerText = "单位地址不能为空";
             return false;
         } else {
-            address.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            address.style = "border-width:1.3pt;border-style:none none none solid;border-color:#2B5297;width:97%;font-size:4vw;outline:none;padding-left:3%";
             hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
             span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
             error.innerText = "";
@@ -243,7 +243,7 @@
             error.innerText = "电话不能为空";
             return false;
         } else {
-            phone.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            phone.style = "border-width:1.3pt;border-style:none none none solid;border-color:#2B5297;width:97%;font-size:4vw;outline:none;padding-left:3%";
             hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
             span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
             error.innerText = "";
@@ -263,7 +263,7 @@
             error.innerText = "电话不能为空";
             return false;
         } else {
-            mail.style = "border-width:1.3pt;border-style:none none none solid;border-color:blue;width:97%;font-size:4vw;outline:none;padding-left:3%";
+            mail.style = "border-width:1.3pt;border-style:none none none solid;border-color:#2B5297;width:97%;font-size:4vw;outline:none;padding-left:3%";
             hr.style = "margin:auto; width:90%;height:3px;border:none;border-top:3px ridge blue";
             span.style = "margin:auto;width:90%;height:14pt;font-size:3vw;color:red;text-align:left;display:none";
             error.innerText = "";
@@ -273,7 +273,7 @@
 
     function CheckAll() {
         if (CheckUsername() != false & CheckPassword() != false & CheckSurePassword() != false & CheckCopname() != false & CheckAddress() != false & CheckPhone() != false & CheckMail() != false) {
-            document.getElementById("form").submit();
+            //document.getElementById("form").submit();
         }
     }
 
