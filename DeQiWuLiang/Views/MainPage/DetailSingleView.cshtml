@@ -8,12 +8,9 @@
     <script src="~/Scripts/echarts.common.min.js"></script>
 <style>
     .newWeui-cells {
-        margin-top: 1.17647059em;
         background-color: #fff;
-        line-height: 1.47058824;
-        font-size: 17px;
+        font-size: 14pt;
         overflow: hidden;
-        position: relative;
     }
     .newWeui-cell {
         padding: 10px 15px;
@@ -228,12 +225,12 @@
             <p style="width:auto;">Tpy:<span>xxxx</span></p>
         </div>
     </div>
-    <div class="newWeui-cell" style="font-size: 14pt;border-radius: 15pt;border: 1pt solid #19479d;margin: 12pt;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
-        <div class="newWeui-cell__hd" id="errchartbtn" style="width:50%;text-align:center;background-color:antiquewhite;border-bottom-left-radius:14pt;border-top-left-radius:14pt;" onclick="getErrChart()">
-            <p style="width:auto;height: 28pt;line-height: 28pt;">故障图表</p>
+    <div class="newWeui-cell" style="font-size: 14pt;height:28pt;border-radius: 15pt;border: 1px solid #19479d;margin: 12pt;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+        <div class="newWeui-cell__hd" id="errchartbtn" style="width:50%;text-align:center;background-color:antiquewhite;border-radius:15pt;border: 1px solid #19479d;margin:0;" onclick="getErrChart()">
+            <p style="width:100%;height: 27pt;line-height: 26pt;">故障图表</p>
         </div>
-        <div class="newWeui-cell__hd" id="effichartbtn" style="width:50%;text-align:center;background-color:aqua;border-bottom-right-radius:14pt;border-top-right-radius:14pt;" onclick="getEffiChart()">
-            <p style="width: auto;height: 28pt;line-height: 28pt;">效率图表</p>
+        <div class="newWeui-cell__hd" id="effichartbtn" style="width:50%;text-align:center;background-color:aqua;border-bottom-right-radius:15pt;border-radius:15pt;margin:0;" onclick="getEffiChart()">
+            <p style="width: auto;height: 27pt;line-height: 26pt;">效率图表</p>
         </div>
     </div>
 
@@ -444,16 +441,16 @@
         //myChart2.setOption(option3, true);
 
         function getErrChart() {
-            $('#errchartbtn').css({ 'background-color': '#19479d', 'border-top-right-radius': '14pt', 'border-bottom-right-radius': '14pt',  'color':'white'});
-            $('#effichartbtn').css({ 'background-color': 'white', 'border-top-left-radius': '0', 'border-bottom-left-radius': '0', 'color':'black'});
+            $('#errchartbtn').css({'background-color': '#19479d', 'border-radius': '15pt','border': '1px solid #19479d','color':'white'});
+            $('#effichartbtn').css({ 'background-color': 'white', 'border-radius': '15pt','border': 'none','color':'black'});
             $("#main2").css("display", "block");
             myChart1.setOption(option1, true);
             myChart2.setOption(option3, true);
         }
 
         function getEffiChart() {
-            $('#errchartbtn').css({ 'background-color': 'white', 'border-top-right-radius': '0', 'border-bottom-right-radius': '0', 'color': 'black'});
-            $('#effichartbtn').css({ 'background-color': '#19479d', 'border-top-left-radius': '14pt', 'border-bottom-left-radius': '14pt',  'color': 'white'});
+            $('#errchartbtn').css({ 'background-color': 'white', 'border-radius': '15pt', 'border': 'none', 'color': 'black' });
+            $('#effichartbtn').css({ 'background-color': '#19479d', 'border-radius': '15pt', 'border': '1px solid #19479d', 'color': 'white' });
                 $("#main2").css("display", "none");
                 myChart1.setOption(option2, true);
     }
