@@ -24,15 +24,29 @@
         border: 1px solid #294B8C;
     }
 
-        select:focus {
-            background-color: transparent;
-            border-color: transparent;
-            border-color: #294B8C !important;
-            outline: 0;
-        }
+    select:focus {
+        background-color: transparent;
+        border-color: transparent;
+        border-color: #294B8C !important;
+        outline: 0;
+    }
+    .log-window {
+        width: 100%;
+        height: 100%;
+        background-color: #999999;
+        opacity: 0.5;
+        margin: auto;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: none;
+    }
 </style>
 }
-
+<div class="log-window" onclick="dismiss()"></div>
 <div style="position:relative;margin-bottom:52pt;">
     <div style="height:50pt;">
         <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
@@ -47,6 +61,7 @@
 
 <script type="text/javascript">
     function ShowSearch() {
+        $(".log-window").css('display', "block");
         $("#SearchPad").css("display", "block");
         $(".weui-search-bar").css("display", "none");
         $("#seachBar").css("display", "none");
@@ -57,11 +72,18 @@
     }
 
     function cancelSearch() {
+        $(".log-window").css('display', "none");
         $("#SearchPad").css("display", "none");
         $(".weui-search-bar").css("display", "block");
     }
 
     function Search() {
+        $(".log-window").css('display', "none");
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+    function dismiss() {
+        $(".log-window").css('display', "none");
         $("#SearchPad").css("display", "none");
         $(".weui-search-bar").css("display", "block");
     }
