@@ -24,28 +24,25 @@
         border: 1px solid #294B8C;
     }
 
-    select:focus {
+        select:focus {
+            background-color: transparent;
+            border-color: transparent;
+            border-color: #294B8C !important;
+            outline: 0;
+        }
+
+    .triangle {
+        border-left: 5pt solid transparent;
+        border-right: 5pt solid transparent;
+        border-top: 5pt solid #294B8C;
+        /*border-bottom: 50px solid yellow;*/
+        width: 0;
+        height: 0;
         background-color: transparent;
-        border-color: transparent;
-        border-color: #294B8C !important;
-        outline: 0;
-    }
-    .log-window {
-        width: 100%;
-        height: 100%;
-        background-color: #999999;
-        opacity: 0.5; 
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: none;
     }
 </style>
 }
-<div class="log-window" onclick="dismiss()"></div>
+
 <div style="position:relative;margin-bottom:52pt;">
     <div style="height:50pt;">
         <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
@@ -60,9 +57,9 @@
 
 <script type="text/javascript">
     function ShowSearch() {
-        $(".log-window").css('display', "block");
         $("#SearchPad").css("display", "block");
         $(".weui-search-bar").css("display", "none");
+        $("#seachBar").css("display", "none");
     }
 
     function GoBack() {
@@ -70,24 +67,17 @@
     }
 
     function cancelSearch() {
-        $(".log-window").css('display', "none");
         $("#SearchPad").css("display", "none");
         $(".weui-search-bar").css("display", "block");
     }
 
     function Search() {
-        $(".log-window").css('display', "none");
-        $("#SearchPad").css("display", "none");
-        $(".weui-search-bar").css("display", "block");
-    }
-    function dismiss() {
-        $(".log-window").css('display', "none");
         $("#SearchPad").css("display", "none");
         $(".weui-search-bar").css("display", "block");
     }
 </script>
 
-<div id="SearchPad" style="display:none;position:absolute;background-color:white;z-index:2;top:0;width:100%;">
+<div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;margin-top:-1pt">
 
     @*<div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
         <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
@@ -113,18 +103,40 @@
             <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
         </div>
     </div>*@
-
-    <div style="height:50pt;">
-        <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="dismiss()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
-        <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
-        <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
-    </div>
-
     <div style="clear:both;margin-left:12pt;margin-right:12pt;">
         <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">时间</div>
-        <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timestart" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700;text-align:center"></div>
+        <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timestart" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700"></div>
         <div style="text-align:center;width:17pt;height:24pt;font-size:12pt;float:left;line-height:24pt;color:#294B8C;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">至</div>
-        <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timeend" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700;text-align:center"></div>
+        <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timeend" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700"></div>
+    </div>
+
+
+
+    @*<div class="weui-cells__title" style="clear:both;">吨位</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
+            </div>
+        </div>
+    </div>*@
+
+    <div style="clear:both;height:5%;"></div>
+
+    <div style="clear:both;margin-left:12pt;margin-right:12pt;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">吨位</div>
+        <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+        <div style="width:62%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <div class="weui-slider-box">
+                <div class="weui-slider">
+                    <div id="sliderInnerTonnage" class="weui-slider__inner">
+                        <div id="sliderTrackTonnage" style="width: 32%;background-color:#2B5297" class="weui-slider__track"></div>
+                        <div id="sliderHandlerTonnage" style="left: 32%;background-color:#2B5297;" class="weui-slider__handler"></div>
+                    </div>
+                </div>
+                <div id="sliderValueTonnage" class="weui-slider-box__value" style="color:black;width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">32</div>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript">
@@ -159,24 +171,6 @@
         });
     </script>
 
-    <div style="clear:both;margin-left:12pt;margin-right:12pt;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">吨位</div>
-        <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
-        <div style="width:62%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
-            <div class="weui-slider-box">
-                <div class="weui-slider">
-                    <div id="sliderInnerTonnage" class="weui-slider__inner">
-                        <div id="sliderTrackTonnage" style="width: 32%;background-color:#2B5297" class="weui-slider__track"></div>
-                        <div id="sliderHandlerTonnage" style="left: 32%;background-color:#2B5297;" class="weui-slider__handler"></div>
-                    </div>
-                </div>
-                <div id="sliderValueTonnage" class="weui-slider-box__value" style="color:black;width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">32</div>
-            </div>
-        </div>
-    </div>
-
-
-
     @*
     <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
     <div class="weui-cells">
@@ -210,25 +204,28 @@
     </div>
 
     <div style="clear:both;height:5%;"></div>
-
-    @*
-    <div class="weui-cells__title" style="clear:both;">区域</div>
     <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
+        <div class="weui-cell__hd" style="width:30%;font-size:16pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><label for="time-format" class="weui-label">区域</label></div>
+        <div class="weui-cell__bd" style="position:relative;width:50%;height:24pt;font-size:18pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <div class="triangle" style="position:absolute;left:43%;top:55%"></div>
+            <input class="weui-input" id="SearchLocat" type="text" style="border:1px solid #294B8C;width:50%;height:100%;font-size:14pt;padding-left:10pt" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
+        </div>
+    </div>
+    
+    @*
+    <div style="clear:both;margin-left:12pt;margin-right:12pt;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">区域</div>
+        <div style="width:40%;height:24pt;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <select style="height:100%;width:100%;font-size:14pt">
+                <option>重庆市</option>
+                <option>江北区</option>
+                <option>渝中区</option>
+                <option>沙坪坝区</option>
+                <option>九龙坡区</option>
+            </select>
         </div>
     </div>
     *@
-
-
-    <div style="clear:both;margin-left:12pt;margin-right:12pt;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">区域</div>
-        <div style="width:40%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
-            <input class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
-        </div>
-    </div>
-
     <div style="clear:both;height:5%;"></div>
     @*<div class="weui-cells" style="clear:both;margin-left:12pt;margin-right:12pt;">
         <div class="weui-cell">
@@ -264,9 +261,18 @@
             <input type="text" style="height:100%;width:100%;border:1px solid #294B8C;font-size:14pt" placeholder="请输入使用单位" />
         </div>
     </div>
-    <button type="button"  style="height:10vw;width:24vw;border-radius:5pt;background:#2B5297;color:white;margin:0 auto;font-size:16pt;display:block;outline: none;">确认</button>
-    
+
+
+    <div style="clear:both;height:5%;"></div>
+    <div style="width:100%;height:20%;">
+        <button style="height:10vw;width:24vw;border-radius:5pt;background:#2B5297;color:white;font-size:16pt;margin:0 auto;display:block">确认</button>
+    </div>
 </div>
+
+@*<div class="menu">
+    <img alt="德器物联" src="~/Content/Images/toplogo.png" />
+</div>*@
+
 
 <div style="height:auto;margin:12pt;font-size:14pt;">
     <div style="height:40pt;float:left;width:100%;background-color:#19479d">
