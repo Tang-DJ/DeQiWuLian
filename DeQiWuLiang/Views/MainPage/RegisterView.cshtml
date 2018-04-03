@@ -96,30 +96,6 @@
         text-align: left;
         display: none;
     }
-
-    .button1 {
-        border:none;
-        float: left;
-        color: #ffffff;
-        width: 24vw;
-        height: 10vw;
-        font-size: 5vw;
-        background-color: #2B5297;
-        border-radius: 5pt;
-        outline:none;
-    }
-
-    .button2 {
-        border:none;
-        float: right;
-        color: #ffffff;
-        width: 24vw;
-        height: 10vw;
-        font-size: 5vw;
-        background-color: #2B5297;
-        border-radius: 5pt;
-        outline:none;
-    }
 </style>
 
 <script type="text/javascript">
@@ -379,11 +355,9 @@
             </div>
         </div>
     </div>
-    <div style="width:100%;height:10%;padding-top:6pt">
-        <div style="width:90%; margin:auto">
-            <button class="button1" type="button" onclick="GoBackToLoginView()">返回</button>
-            <button class="button2" type="button" onclick="CheckAll()">确认注册</button>
-        </div>
+    <div style="width:82%;margin-left:9%;">
+        <a class="weui-btn" style=" float: left;width: 40%;background-color: #2B5297;" onclick="GoBackToLoginView()">返回</a>
+        <a class="weui-btn" style=" float: right;width: 40%;background-color: #2B5297;margin-top:0" onclick="CheckAll()">确认注册</a>
     </div>
 </form>
 }
