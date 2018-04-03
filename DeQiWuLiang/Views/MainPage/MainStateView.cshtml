@@ -5,8 +5,10 @@
 
 @section head{
 <link rel="stylesheet" href="~/Content/PageTransitions/dist/css/animsition.min.css" />
-<script src="~/Content/PageTransitions/dist/js/jquery.animsition.min.js"></script>
+<script src="~/Content/PageTransitions/dist/js/jquery.animsition.js"></script>
+@*
 <script src="~/Content/zepto.min.js"></script>
+*@
 <style>
     * {
         margin: 0;
@@ -103,6 +105,11 @@
     </div>
 
     <script type="text/javascript">
+        $('#slider').slider();
+
+        $('#slide1').slider(function (percent) {
+            console.log(percent)
+        })
         $(function () {
             var $sliderTrack = $('#sliderTrackTonnage'),
                 $sliderHandler = $('#sliderHandlerTonnage'),
@@ -155,7 +162,7 @@
         <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
         <div style="width:62%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <div class="weui-slider-box">
-                <div class="weui-slider">
+                <div class="weui-slider" id="slider1">
                     <div id="sliderInnerEffective" class="weui-slider__inner">
                         <div id="sliderTrackEffective" style="width: 32%;background-color:#2B5297" class="weui-slider__track"></div>
                         <div id="sliderHandlerEffective" style="left: 32%;background-color:#2B5297;" class="weui-slider__handler"></div>
@@ -194,7 +201,6 @@
         </div>
     </div>*@
 
-
     <div style="margin:12pt;height:40px;">
         <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">制造单位</div>
         <div style="width:67%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
@@ -209,7 +215,7 @@
         </div>
     </div>
     <div style="margin:12pt;height:40px;text-align:center">
-        <button type="button" style="height:10vw;width:24vw;border-radius:5pt;background:#2B5297;color:white;margin:0 auto;font-size:16pt;outline: none;">确认</button>
+        <a class="weui-btn weui-btn_warn" style="background-color:#2B5297;width:24vw;">确认</a>
     </div>
     
 </div>
