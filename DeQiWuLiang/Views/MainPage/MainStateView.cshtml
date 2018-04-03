@@ -42,33 +42,30 @@
         display: none;
     }
     input[type="range"] {
-        /*-webkit-box-shadow: 0 1px 0 0px #424242, 0 1px 0 #060607 inset, 0px 2px 10px 0px black inset, 1px 0px 2px rgba(0, 0, 0, 0.4) inset, 0 0px 1px rgba(0, 0, 0, 0.6) inset;*/
         -webkit-appearance: none; /*去除默认样式*/
         margin-top: 15px;
         background-color: rgb(233,233,233);
         background: -webkit-linear-gradient(#19479D, #19479D) no-repeat;
         background-size: 0% 100%;
-        /*border-radius: 15px;*/
         width: 80% !important;
         -webkit-appearance: none;
         height: 3px;
         padding: 0;
         border: none;
-        /*input的长度为80%，margin-left的长度为10%*/
+      
     }
 
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none; /*去除默认样式*/
-            cursor: default;
-            top: 0;
-            height: 20px;
-            width: 20px;
-            transform: translateY(0px);
-            /*background: none repeat scroll 0 0 #5891f5;*/
-            background: #19479D;
-            border-radius: 15px;
-            /*-webkit-box-shadow: 0 -1px 1px #fc7701 inset;*/
-        }
+   input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none; /*去除默认样式*/
+        cursor: default;
+        top: 0;
+        height: 20px;
+        width: 20px;
+        transform: translateY(0px);
+        background: #19479D;
+        border-radius: 15px;
+       
+    }
 </style>
 }
 <div class="log-window" onclick="dismiss()"></div>
@@ -217,16 +214,6 @@
             $('#sliderTrackTonnage1').RangeSlider({ min: 0, max: 100, step: 1, callback: '' });
         });
     </script>
-    @*
-    <div class="weui-cells__title" style="clear:both;">区域</div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
-        <div class="weui-cell__bd">
-            <input style="border: dashed 1px black" class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
-        </div>
-    </div>
-    *@
-
 
     <div style="margin:12pt;height:40px;">
         <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">区域</div>
@@ -234,15 +221,6 @@
             <input class="weui-input" style="border:1px solid #294b8c;padding-left:9pt;" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
         </div>
     </div>
-
-    @*<div class="weui-cells" style="clear:both;margin-left:12pt;margin-right:12pt;">
-        <div class="weui-cell">
-            <div class="weui-cells__title" style="clear:both;width:20%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">制造单位</div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="默认为全部">
-            </div>
-        </div>
-    </div>*@
 
     <div style="margin:12pt;height:40px;">
         <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">制造单位</div>
@@ -264,10 +242,7 @@
 </div>
 <script>
     $(document).ready(function () {
-        //alert(window.innerHeight); //浏览器当前窗口文档的高度
-
-        $('#SearchPad').css('height', window.innerHeight - 40 + 'px');
-
+        $('#SearchPad').css('height', window.innerHeight + 'px');
     })
 </script>
 

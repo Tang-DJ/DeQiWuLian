@@ -6,14 +6,77 @@
 @section head{
     <link rel="stylesheet" href="~/Content/WeChat.css?@DateTime.Now.ToString();" />
 }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
+    input:focus {
+        border-color: #294B8C !important;
+        outline: 0;
+    }
+
+    select {
+        background-color: transparent;
+        border-color: transparent;
+        border: 1px solid #294B8C;
+    }
+
+        select:focus {
+            background-color: transparent;
+            border-color: transparent;
+            border-color: #294B8C !important;
+            outline: 0;
+        }
+
+    .log-window {
+        width: 100%;
+        height: 100%;
+        background-color: #999999;
+        opacity: 0.5;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: none;
+    }
+
+    input[type="range"] {
+        -webkit-appearance: none; /*去除默认样式*/
+        margin-top: 15px;
+        background-color: rgb(233,233,233);
+        background: -webkit-linear-gradient(#19479D, #19479D) no-repeat;
+        background-size: 0% 100%;
+        width: 80% !important;
+        -webkit-appearance: none;
+        height: 3px;
+        padding: 0;
+        border: none;
+    }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; /*去除默认样式*/
+            cursor: default;
+            top: 0;
+            height: 20px;
+            width: 20px;
+            transform: translateY(0px);
+            background: #19479D;
+            border-radius: 15px;
+        }
+</style>
+
+<div class="log-window" onclick="dismiss()"></div>
 <div style="position:relative;margin-bottom:52pt;">
     <div style="height:50pt;">
         <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
         <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
         <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
     </div>
-    <div style="padding:0 12pt;" onclick="ShowSearch()">
+    <div id="seachBar" style="padding:0 12pt;" onclick="ShowSearch()">
         <div style="width:87%;"><input type="text" style="float: left;color:#19479d;width: 94%;height: 40pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;font-size: 16pt;outline: none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" placeholder="&emsp;请输入关键字" /></div>
         <div style="float:left;height: 40pt;background: #19479d;width: 18%;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align: center;padding: 8pt"><img src="../../Content/Images/search2.png" /></div>
     </div>
@@ -21,91 +84,169 @@
 
 <script type="text/javascript">
     function ShowSearch() {
+        $(".log-window").css('display', "block");
         $("#SearchPad").css("display", "block");
         $(".weui-search-bar").css("display", "none");
     }
 
     function GoBack() {
-        window.location.href = "/MainPage/MainStateView";
+        window.location.href = "/MainPage/Login";
     }
 
     function cancelSearch() {
+        $(".log-window").css('display', "none");
         $("#SearchPad").css("display", "none");
         $(".weui-search-bar").css("display", "block");
     }
 
     function Search() {
+        $(".log-window").css('display', "none");
+        $("#SearchPad").css("display", "none");
+        $(".weui-search-bar").css("display", "block");
+    }
+    function dismiss() {
+        $(".log-window").css('display', "none");
         $("#SearchPad").css("display", "none");
         $(".weui-search-bar").css("display", "block");
     }
 </script>
 
-<div id="SearchPad" style="display:none;position:absolute;height:100%;width:100%;background-color:white;z-index:5;">
-    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
-        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="cancelSearch()">返回</p>
+<div id="SearchPad" style="display:none;position:fixed;background-color:white;z-index:2;top:0;width:100%;">
+
+    <div style="height:50pt;">
+        <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="dismiss()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+        <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
+        <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
     </div>
-    <div style="height:40px;float:left;width:60%;">
-        <p style="text-align:center;font-size:16px;line-height:40px;">搜索选项列表</p>
+
+    <div style="margin:12pt;height:40px;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">时间</div>
+        <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timestart" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700;text-align:center"></div>
+        <div style="text-align:center;width:17pt;height:24pt;font-size:12pt;float:left;line-height:24pt;color:#294B8C;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">至</div>
+        <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timeend" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700;text-align:center"></div>
     </div>
-    <div style="height:40px;float:left;width:20%;background-color:cornflowerblue;">
-        <p style="text-align:center;font-size:16px;line-height:40px;" onclick="Search()">确定</p>
-    </div>
-    <div class="weui-cells__title" style="clear:both;">吨位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="number" placeholder="请输入吨位，默认为全部">
-            </div>
+
+    <div style="margin:12pt;height:40px;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">吨位</div>
+        <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+        <div style="width:62%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <div><input type="range" id="sliderTrackTonnage" style="width: 32%;background-color:rgb(233,233,233);float:left;margin: 15px 6pt;" value="0" /></div>
+            <div id="sliderValueTonnage" style="color:black;width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">效率区间值（默认为全部）</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
-                <input class="weui-input" type="number" placeholder="最小值">
-            </div>
-            <div class="weui-cell__hd">
-                <input class="weui-input" type="number" placeholder="最大值">
-            </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#sliderValueTonnage').text(0);
+            $('#sliderTrackTonnage').on('input propertychange', function () {
+                $('#sliderValueTonnage').text(document.getElementById("sliderTrackTonnage").value);
+            })
+            $.fn.RangeSlider = function (cfg) {
+                this.sliderCfg = {
+                    min: cfg && !isNaN(parseFloat(cfg.min)) ? Number(cfg.min) : null,
+                    max: cfg && !isNaN(parseFloat(cfg.max)) ? Number(cfg.max) : null,
+                    step: cfg && Number(cfg.step) ? cfg.step : 1,
+                    callback: cfg && cfg.callback ? cfg.callback : null
+                };
+
+                var $input = $(this);
+                var min = this.sliderCfg.min;
+                var max = this.sliderCfg.max;
+                var step = this.sliderCfg.step;
+                var callback = this.sliderCfg.callback;
+
+                $input.attr('min', min)
+                    .attr('max', max)
+                    .attr('step', step);
+
+                $input.bind("input", function (e) {
+                    $input.attr('value', this.value);
+                    $input.css('background-size', this.value + '% 100%');
+
+                    if ($.isFunction(callback)) {
+                        callback(this);
+                    }
+                });
+            };
+            $('#sliderTrackTonnage').RangeSlider({ min: 0, max: 100, step: 1, callback: '' });
+        });
+    </script>
+    <div style="margin:12pt;height:40px;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">效率</div>
+        <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+        <div style="width:62%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <div><input type="range" id="sliderTrackTonnage1" style="width: 32%;background-color:rgb(233,233,233);float:left;margin: 15px 6pt;" value="0" /></div>
+            <div id="sliderValueTonnage1" style="color:black;width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">时间区间选择</div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">起始时间</label></div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" id="timestart" type="text" value="2017-01-01 12:00">
+
+    <script type="text/javascript">
+        $(function () {
+            $('#sliderValueTonnage1').text(0);
+            $('#sliderTrackTonnage1').on('input propertychange', function () {
+                $('#sliderValueTonnage1').text(document.getElementById("sliderTrackTonnage1").value);
+            })
+            $.fn.RangeSlider = function (cfg) {
+                this.sliderCfg = {
+                    min: cfg && !isNaN(parseFloat(cfg.min)) ? Number(cfg.min) : null,
+                    max: cfg && !isNaN(parseFloat(cfg.max)) ? Number(cfg.max) : null,
+                    step: cfg && Number(cfg.step) ? cfg.step : 1,
+                    callback: cfg && cfg.callback ? cfg.callback : null
+                };
+
+                var $input = $(this);
+                var min = this.sliderCfg.min;
+                var max = this.sliderCfg.max;
+                var step = this.sliderCfg.step;
+                var callback = this.sliderCfg.callback;
+
+                $input.attr('min', min)
+                    .attr('max', max)
+                    .attr('step', step);
+
+                $input.bind("input", function (e) {
+                    $input.attr('value', this.value);
+                    $input.css('background-size', this.value + '% 100%');
+
+                    if ($.isFunction(callback)) {
+                        callback(this);
+                    }
+                });
+            };
+            $('#sliderTrackTonnage1').RangeSlider({ min: 0, max: 100, step: 1, callback: '' });
+        });
+    </script>
+
+    <div style="margin:12pt;height:40px;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">区域</div>
+        <div style="width:40%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <input class="weui-input" style="border:1px solid #294b8c;padding-left:9pt;" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">结束时间</label></div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" id="timeend" type="text" value="2017-01-01 12:00">
+
+    <div style="margin:12pt;height:40px;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">制造单位</div>
+        <div style="width:67%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <input id="make" type="text" style="height:100%;width:100%;border:1px solid #294B8C;font-size:14pt;outline:0;padding-left:9pt;" placeholder="请输入制造单位" />
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">区域</div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="time-format" class="weui-label">区域选择</label></div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
+
+    <div style="margin:12pt;height:40px;">
+        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">使用单位</div>
+        <div style="width:67%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+            <input type="text" style="height:100%;width:100%;border:1px solid #294B8C;font-size:14pt;padding-left:9pt;" placeholder="请输入使用单位" />
         </div>
     </div>
-    <div class="weui-cells__title" style="clear:both;">制造单位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="默认为全部">
-            </div>
-        </div>
+    <div style="margin:12pt;height:40px;text-align:center">
+        <a class="weui-btn weui-btn_warn" style="background-color:#2B5297;width:24vw;">确认</a>
     </div>
-    <div class="weui-cells__title" style="clear:both;">使用单位</div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="默认为全部">
-            </div>
-        </div>
-    </div>
+
 </div>
+<script>
+    $(document).ready(function () {
+        $('#SearchPad').css('height', window.innerHeight + 'px');
+    })
+</script>
+
 <script type="text/javascript">
     $("#timestart").datetimePicker({
         title: '起始时间',
