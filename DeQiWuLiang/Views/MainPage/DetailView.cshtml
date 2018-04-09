@@ -11,7 +11,7 @@
         <img style="vertical-align: middle;display: inline-block;" src="~/Content/Images/goback.jpg" />
     </div>
     <div style="float:left;width:80%;height:50px;line-height:50px;">
-        <p style="text-align:center;line-height:50px;margin:0;font-size:20px;">设备数据</p>
+        <p style="text-align:center;line-height:50px;margin:0;font-size:12pt;">设备数据</p>
     </div>
 </div>
 <div style="height:50px;"></div>
@@ -23,7 +23,7 @@
     </div>
     <div style="margin-left:20px;width:40%;float:left">
         <p style="font-weight:bolder;">排烟温度T<span style="font-size:0.5em;">py</span></p>
-        <p style="font-size:16px;color:cadetblue;">XXX ℃</p>
+        <p style="font-size:12pt;color:cadetblue;">XXX ℃</p>
     </div>
     <div style="float:left;height:80px;width:30%;text-align:center;line-height:80px;" onclick="LinkToChartView(1)"> 
         <img style="vertical-align:middle;display:inline-block; height:45px;" src="~/Content/Images/chartimg.jpg" />
@@ -35,7 +35,7 @@
     </div>
     <div style="margin-left:20px;width:40%;float:left">
         <p style="font-weight:bolder;">一氧化碳CO</p>
-        <p style="font-size:16px;color:cadetblue;">XXX %</p>
+        <p style="font-size:12pt;color:cadetblue;">XXX %</p>
     </div>
     <div style="float:left;height:80px;width:30%;text-align:center;line-height:80px;" onclick="LinkToChartView(2)">
         <img style="vertical-align:middle;display:inline-block; height:45px;" src="~/Content/Images/chartimg.jpg" />
@@ -47,7 +47,7 @@
     </div>
     <div style="margin-left:20px;width:40%;float:left">
         <p style="font-weight:bolder;">氧气O<span style="font-size:0.5em;">2</span></p>
-        <p style="font-size:16px;color:cadetblue;">XXX %</p>
+        <p style="font-size:12pt;color:cadetblue;">XXX %</p>
     </div>
     <div style="float:left;height:80px;width:30%;text-align:center;line-height:80px;" onclick="LinkToChartView(2)">
         <img style="vertical-align:middle;display:inline-block; height:45px;" src="~/Content/Images/chartimg.jpg" />
@@ -59,7 +59,7 @@
     </div>
     <div style="margin-left:20px;width:40%;float:left">
         <p style="font-weight:bolder;">冷空气温度T<span style="font-size:0.5em;">lk</span></p>
-        <p style="font-size:16px;color:cadetblue;">XXX ℃</p>
+        <p style="font-size:12pt;color:cadetblue;">XXX ℃</p>
     </div>
     <div style="float:left;height:80px;width:30%;text-align:center;line-height:80px;" onclick="LinkToChartView(1)">
         <img style="vertical-align:middle;display:inline-block; height:45px;" src="~/Content/Images/chartimg.jpg" />
@@ -71,7 +71,7 @@
     </div>
     <div style="margin-left:20px;width:40%;float:left">
         <p style="font-weight:bolder;">表面温度T<span style="font-size:0.5em;">bm</span></p>
-        <p style="font-size:16px;color:cadetblue;">XXX ℃</p>
+        <p style="font-size:12pt;color:cadetblue;">XXX ℃</p>
     </div>
     <div style="float:left;height:80px;width:30%;text-align:center;line-height:80px;" onclick="LinkToChartView(1)">
         <img style="vertical-align:middle;display:inline-block; height:45px;" src="~/Content/Images/chartimg.jpg" />
@@ -83,7 +83,7 @@
     </div>
     <div style="margin-left:20px;width:40%;float:left">
         <p style="font-weight:bolder;">蒸汽压力P<span style="font-size:0.5em;"></span></p>
-        <p style="font-size:16px;color:cadetblue;">XXX Pa</p>
+        <p style="font-size:12pt;color:cadetblue;">XXX Pa</p>
     </div>
     <div style="float:left;height:80px;width:30%;text-align:center;line-height:80px;" onclick="LinkToChartView(3)">
         <img style="vertical-align:middle;display:inline-block; height:45px;" src="~/Content/Images/chartimg.jpg" />
@@ -93,9 +93,7 @@
 
 
 <script type="text/javascript">
-
-
-
+    
     function LinkToChartView(Unit) {
         window.location.href = "/MainPage/ChartView?from=DetailView&fromId=1&Unit=" + Unit;
     }

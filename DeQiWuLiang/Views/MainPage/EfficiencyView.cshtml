@@ -25,12 +25,12 @@
         border: 1px solid #294B8C;
     }
 
-    select:focus {
-        background-color: transparent;
-        border-color: transparent;
-        border-color: #294B8C !important;
-        outline: 0;
-    }
+        select:focus {
+            background-color: transparent;
+            border-color: transparent;
+            border-color: #294B8C !important;
+            outline: 0;
+        }
 
     .log-window {
         width: 100%;
@@ -59,28 +59,28 @@
         border: none;
     }
 
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none; /*去除默认样式*/
-        cursor: default;
-        top: 0;
-        height: 20px;
-        width: 20px;
-        transform: translateY(0px);
-        background: #19479D;
-        border-radius: 15px;
-    }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; /*去除默认样式*/
+            cursor: default;
+            top: 0;
+            height: 20px;
+            width: 20px;
+            transform: translateY(0px);
+            background: #19479D;
+            border-radius: 15px;
+        }
 </style>
 }
 <div class="log-window" onclick="dismiss()"></div>
 <div style="position:relative;margin-bottom:52pt;">
-    <div style="height:53pt;">
-        <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+    <div style="height:50pt;">
+        <div style="font-size:14pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="GoBack()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
         <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
-        <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
+        <div style="color:#19479d;font-size:12pt;float:right;padding-top:16pt;">用户名&emsp;</div>
     </div>
     <div id="seachBar" style="padding:0 12pt;" onclick="ShowSearch()">
-        <div style="width:87%;"><input type="text" style="float: left;color:#19479d;width: 85%;height: 35pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;font-size: 16pt;outline: none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" placeholder="&emsp;请输入关键字" /></div>
-        <div style="float:left;height: 35pt;background: #19479d;width: 26%;top: 0pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align: center;padding: 8pt"><img src="../../Content/Images/search2.png" style="width:22pt" /></div>
+        <div style="width:87%;"><input type="text" style="float: left;color:#19479d;width: 85%;height: 30pt;border-bottom-left-radius: 25pt;border-top-left-radius: 25pt;border: 1px solid #19479d;font-size: 14pt;outline: none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;" placeholder="&emsp;请输入关键字" /></div>
+        <div style="float:left;height: 30pt;background: #19479d;width: 26%;padding-top:5pt;border-bottom-right-radius: 25pt;border-top-right-radius: 25pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align: center;"><img src="../../Content/Images/search2.png" style="width:20pt" /></div>
     </div>
 </div>
 
@@ -113,27 +113,27 @@
     }
 </script>
 
-<div id="SearchPad" style="display:none;position:fixed;background-color:white;z-index:2;top:0;width:100%;">
 
+<div id="SearchPad" style="display:none;position:fixed;background-color:white;z-index:2;top:0;width:100%;z-index:3">
     <div style="height:50pt;">
-        <div style="font-size:18pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="dismiss()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
+        <div style="font-size:14pt;color:#19479d;float:left;margin-top:15pt;margin-left: 12pt;" onclick="dismiss()"><img src="../../Content/Images/back.png" style="width:20pt" /><span style="position: relative;bottom: 4pt;">返回</span></div>
         <div style="float:right;margin-top: 6pt;margin-right: 12pt;"><img src="../../Content/Images/smalllogo.png" style="width:39pt;" /></div>
-        <div style="color:#19479d;font-size:14pt;float:right;padding-top:16pt;">用户名&emsp;</div>
+        <div style="color:#19479d;font-size:12pt;float:right;padding-top:16pt;">用户名&emsp;</div>
     </div>
 
     <div style="margin:12pt;height:40px;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">时间</div>
+        <div style="width:30%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">时间</div>
         <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timestart" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700;text-align:center"></div>
         <div style="text-align:center;width:17pt;height:24pt;font-size:12pt;float:left;line-height:24pt;color:#294B8C;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">至</div>
         <div style="width:30%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box"><input id="timeend" type="text" value="2017-01-01 12:00" style="width:100%;height:100%;border:1px solid black;font-size:9pt;font-weight:700;text-align:center"></div>
     </div>
 
     <div style="margin:12pt;height:40px;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">吨位</div>
-        <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
-        <div style="width:62%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+        <div style="width:30%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">吨位</div>
+        <div style="width:5%;height:24pt;font-size:12pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+        <div style="width:62%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <div><input type="range" id="sliderTrackTonnage" style="width: 32%;background-color:rgb(233,233,233);float:left;margin: 15px 6pt;" value="0" /></div>
-            <div id="sliderValueTonnage" style="color:black;width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+            <div id="sliderValueTonnage" style="color:black;width:5%;height:24pt;font-size:12pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
         </div>
     </div>
     <script type="text/javascript">
@@ -173,11 +173,11 @@
         });
     </script>
     <div style="margin:12pt;height:40px;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">效率</div>
-        <div style="width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
-        <div style="width:62%;font-size:18pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+        <div style="width:30%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">效率</div>
+        <div style="width:5%;height:24pt;font-size:12pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+        <div style="width:62%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <div><input type="range" id="sliderTrackTonnage1" style="width: 32%;background-color:rgb(233,233,233);float:left;margin: 15px 6pt;" value="0" /></div>
-            <div id="sliderValueTonnage1" style="color:black;width:5%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
+            <div id="sliderValueTonnage1" style="color:black;width:5%;height:24pt;font-size:12pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">0</div>
         </div>
     </div>
 
@@ -219,23 +219,25 @@
     </script>
 
     <div style="margin:12pt;height:40px;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">区域</div>
-        <div style="width:40%;height:24pt;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
+        <div style="width:30%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">区域</div>
+        <div style="width:40%;height:24pt;font-size:12pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
             <input class="weui-input" style="border:1px solid #294b8c;padding-left:9pt;" id="SearchLocat" type="text" readonly placeholder="默认为全部" value="重庆市" onclick="SearchLocatFunc()">
+            <div style=" width: 0; height: 0;margin-top:-14pt;margin-left:90pt ;border-left: 5pt solid transparent;border-right: 5pt solid transparent;border-top: 6pt solid #294b8c;"></div>
+
         </div>
     </div>
 
     <div style="margin:12pt;height:40px;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">制造单位</div>
+        <div style="width:30%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">制造单位</div>
         <div style="width:67%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
-            <input id="make" type="text" style="height:100%;width:100%;border:1px solid #294B8C;font-size:14pt;outline:0;padding-left:9pt;" placeholder="请输入制造单位" />
+            <input id="make" type="text" style="height:100%;width:100%;border:1px solid #294B8C;font-size:12pt;outline:0;padding-left:9pt;" placeholder="请输入制造单位" />
         </div>
     </div>
 
     <div style="margin:12pt;height:40px;">
-        <div style="width:30%;font-size:16pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">使用单位</div>
+        <div style="width:30%;font-size:14pt;float:left;line-height:24pt;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">使用单位</div>
         <div style="width:67%;height:24pt;float:left;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box">
-            <input type="text" style="height:100%;width:100%;border:1px solid #294B8C;font-size:14pt;padding-left:9pt;" placeholder="请输入使用单位" />
+            <input type="text" style="height:100%;width:100%;border:1px solid #294B8C;font-size:12pt;padding-left:9pt;" placeholder="请输入使用单位" />
         </div>
     </div>
     <div style="margin:12pt;height:40px;text-align:center">
