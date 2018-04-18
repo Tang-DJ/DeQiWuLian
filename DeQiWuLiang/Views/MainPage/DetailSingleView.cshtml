@@ -470,10 +470,11 @@
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['11:10', '11:20', '11:30', '11:40', '11:50', '11:60', '11:70']
+            data: ['1月', '2月', '3月', '4月', '5月']
         },
         yAxis: {
             type: 'value',
+            min: 50,
             axisLabel: {
                 formatter: '{value} %'
             }
@@ -482,7 +483,7 @@
             {
                 name: '效率',
                 type: 'line',
-                data: [60, 65, 68, 65, 70, 65, 63],
+                data: [82, 79, 82, 75, 78],
                 //markPoint: {
                 //    data: [
                 //        { name: '问题', value: '问题', xAxis: 3, yAxis: 6 }
