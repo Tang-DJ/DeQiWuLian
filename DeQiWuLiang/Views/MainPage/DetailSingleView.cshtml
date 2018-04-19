@@ -8,12 +8,11 @@
 <style>
     .newWeui-cells {
         background-color: #fff;
-        font-size: 12pt;
         overflow: hidden;
     }
 
     .newWeui-cell {
-        padding: 10px 15px;
+        padding: 10px 15px 0 15px;
         position: relative;
         display: -webkit-box;
         display: -webkit-flex;
@@ -39,12 +38,12 @@
         border: 1px solid #294B8C;
     }
 
-        select:focus {
-            background-color: transparent;
-            border-color: transparent;
-            border-color: #294B8C !important;
-            outline: 0;
-        }
+    select:focus {
+        background-color: transparent;
+        border-color: transparent;
+        border-color: #294B8C !important;
+        outline: 0;
+    }
 
     .log-window {
         width: 100%;
@@ -349,31 +348,31 @@
     }
 </script>
 
-<h2 style="text-align:center;width:100%;font-size:14pt;">设备名称</h2>
+<h2 style="text-align:center;width:100%;font-size:9pt;">天然气工业锅炉</h2>
 <div class="newnewWeui-cells" style="border:none;">
-    <div class="newWeui-cell" style="font-size:12pt;">
-        <div class="newWeui-cell__hd" style="width:55%;">
-            <img src="../../Content/Images/boiler.png" style="width:65%;margin-left:10%;" />
+    <div class="newWeui-cell" style="font-size:3pt;">
+        <div class="newWeui-cell__hd" style="width:45%;padding-right:5%">
+            <p>型号:<span>WNS1-1.0-Y.Q</span></p>
+            <p>Tpy:<span>221.60℃</span></p>
+            <p>O2:<span>9.04%</span></p>
+            <p>P:<span>0.76MPa</span></p>
         </div>
-        <div class="newWeui-cell__hd" style="width:45%;">
-            <p style="width:auto;">编号:<span>xxxx</span></p>
-            <p style="width:auto;">型号:<span>xxxx</span></p>
-            <p style="width:auto;">状态:<span>xxxx</span></p>
-            <p style="width:auto;">地址:<span>xxxx</span></p>
-            <p style="width:auto;">氧气:<span>xxxx</span></p>
-            <p style="width:auto;">冷空气温度:<span>xxxx</span></p>
-            <p style="width:auto;">表面温度:<span>xxxx</span></p>
-            <p style="width:auto;">蒸汽压力:<span>xxxx</span></p>
-            <p style="width:auto;">一氧化碳:<span>xxxx</span></p>
-            <p style="width:auto;">Tpy:<span>xxxx</span></p>
+        <div class="newWeui-cell__hd" style="width:50%;padding-right:5%;">
+            <p>编号:<span>NO.08006</span></p>
+            <p>Tlk:<span>16.90℃</span></p>
+            <p>CO:<span>0.00%</span></p>
+            <p>能效:<span>83.45%</span></p>
+
         </div>
+        <img src="../../Content/Images/boiler.png" style="width:25%;" />
     </div>
+
     <div class="newWeui-cell" style="font-size: 14pt;height:28pt;border-radius: 15pt;border: 1px solid #19479d;margin: 12pt;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
         <div class="newWeui-cell__hd" id="errchartbtn" style="width:50%;text-align:center;background-color:antiquewhite;border-radius:15pt;border: 1px solid #19479d;margin:0;" onclick="getErrChart()">
-            <p style="width:100%;height: 27pt;line-height: 26pt;">故障图表</p>
+            <p style="width:100%;height: 26pt;line-height: 26pt;">故障图表</p>
         </div>
         <div class="newWeui-cell__hd" id="effichartbtn" style="width:50%;text-align:center;background-color:aqua;border-bottom-right-radius:15pt;border-radius:15pt;margin:0;" onclick="getEffiChart()">
-            <p style="width: auto;height: 27pt;line-height: 26pt;">效率图表</p>
+            <p style="width: auto;height: 26pt;line-height: 26pt;">效率图表</p>
         </div>
     </div>
 
@@ -465,7 +464,8 @@
             left: '3%',
             right: '15%',
             bottom: '0%',
-            containLabel: true
+            containLabel: true,
+            y:200
         },
         xAxis: {
             type: 'category',
