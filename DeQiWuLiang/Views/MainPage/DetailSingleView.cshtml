@@ -475,6 +475,7 @@
         yAxis: {
             type: 'value',
             min: 50,
+            max:100,
             axisLabel: {
                 formatter: '{value} %'
             }
@@ -483,12 +484,13 @@
             {
                 name: '效率',
                 type: 'line',
-                data: [ 79, 78, 81, 82, 79, 82, 75, 78],
+                data: [ 79, 78, 81, 82, 79, 82, 80],
                 //markPoint: {
                 //    data: [
                 //        { name: '问题', value: '问题', xAxis: 3, yAxis: 6 }
                 //    ]
                 //},
+                smooth: true,
                 markLine: {
                     data: [
                         { type: 'average', name: '平均值' },
@@ -503,9 +505,7 @@
                                     position: 'start',
                                     formatter: '最大值'
                                 }
-                            },
-                            type: 'max',
-                            name: '最高点'
+                            }
                         }]
                     ]
                 }
