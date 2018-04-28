@@ -351,15 +351,15 @@
 <h2 style="text-align:center;width:100%;font-size:9pt;">天然气工业锅炉</h2>
 <div class="newnewWeui-cells" style="border:none;">
     <div class="newWeui-cell" style="font-size:3pt;">
-        <div class="newWeui-cell__hd" style="width:45%;padding-right:5%">
+        <div class="newWeui-cell__hd" style="width:55%;padding-right:5%">
             <p>型号:<span>WNS1-1.0-Y.Q</span></p>
-            <p>Tpy:<span>221.60℃</span></p>
-            <p>O2:<span>9.04%</span></p>
+            <p>T<sub>py</sub>:<span>221.60℃</span></p>
+            <p style="display:block">O<sub>₂</sub>:<span>9.04%</span></p>
             <p>P:<span>0.76MPa</span></p>
         </div>
-        <div class="newWeui-cell__hd" style="width:50%;padding-right:5%;">
+        <div class="newWeui-cell__hd" style="width:45%;padding-right:5%;">
             <p>编号:<span>NO.08006</span></p>
-            <p>Tlk:<span>16.90℃</span></p>
+            <p>T<sub>lk</sub>:<span>16.90℃</span></p>
             <p>CO:<span>0.00%</span></p>
             <p>能效:<span>83.45%</span></p>
 
@@ -397,8 +397,8 @@
 
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
-    var myChart1 = echarts.init(document.getElementById('main1'));
-    var myChart2 = echarts.init(document.getElementById("main2"));
+    var myChart1 = echarts.init(document.getElementById('main2'));
+    var myChart2 = echarts.init(document.getElementById("main1"));
     var myChart3 = echarts.init(document.getElementById("main3"));
 
     option1 = {
@@ -485,7 +485,7 @@
             {
                 name: '效率',
                 type: 'line',
-                data: [ 79, 78, 81, 82, 79, 82, 80],
+                data: [ 81, 85, 84, 83, 85, 84, 83],
                 //markPoint: {
                 //    data: [
                 //        { name: '问题', value: '问题', xAxis: 3, yAxis: 6 }
